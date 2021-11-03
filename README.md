@@ -51,8 +51,6 @@ open opinion
 
 
 ## 設計書
-ER図
-https://drive.google.com/file/d/1VoMAYeQWq3esWE3rSFi1rLnHNkEYvj6t/view?usp=sharing
 テーブル定義書
 https://docs.google.com/spreadsheets/d/1w00NJBWOTqsnFYGTvt98RcAhfPG5tx58k9RQXAI6S1Y/edit#gid=1243549839
 
