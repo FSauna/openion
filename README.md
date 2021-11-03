@@ -1,24 +1,70 @@
-# README
+# Opeion
+open opinion
+- サイト概要
+- サイトテーマ
+- テーマを選んだ理由
+- ターゲットユーザ
+- 主な利用シーン
+- 設計書
+- チャレンジ要素一覧
+- 開発環境
+- 使用素材
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## サイト概要
+日常の困ったことをシェアするご意見箱SNS。
+みんなが困っていることを投稿、同調(いいね)したり、コメントして議論しあう。
+解決策を知っている人がコメントで教えてあげることも可能。
 
-* Ruby version
 
-* System dependencies
+### サイトテーマ
+みんなの困った声を共有し、可視化する。
 
-* Configuration
+### テーマを選んだ理由
+大なり小なり、みんな日常で困ったことを抱えています。
 
-* Database creation
+そんな困った声を共有することで解決できることもあるかもしれません。
+また、自分だけの悩みだと思っていたことはもしかしたら他の人も困っていることかもしれません。
 
-* Database initialization
+もしかしたら、さらにみんなの声が集まれば、社会の制度を変える何かのきっかけになるかもしれない。
 
-* How to run the test suite
+本サイトではみんなの困った声を気軽に投稿し、可視化することで問題解決の何か糸口になればと思い作成しました。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+ゆくゆくはランキングの上位のお悩みを然るべき機関のご意見箱に投稿して、
+実際に社会の制度を変えるような動きができるサービスになればと思っています。
+
+
+
+### ターゲットユーザ
+日常のちょっとした困ったことを抱えている人。
+制度等社会の大きな課題にぶつかっている人。
+
+### 主な利用シーン
+「ゴミ捨て場のゴミが散乱していて困っている。」
+「通学路の歩道が狭くて危ない。」
+「起業をしたいが役に立つ制度が知りたい。調べる方法を知りたい。」
+「お金がなくて学校に通えない。」
+等様々な悩みをＳＮＳに投稿する。
+
+
+
+## 設計書
+ER図
+https://drive.google.com/file/d/1VoMAYeQWq3esWE3rSFi1rLnHNkEYvj6t/view?usp=sharing
+テーブル定義書
+https://docs.google.com/spreadsheets/d/1w00NJBWOTqsnFYGTvt98RcAhfPG5tx58k9RQXAI6S1Y/edit#gid=1243549839
+
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1OLe4_YLulDvtOMI3M_xQPB-XfJHu7gri31EvCHPVgMI/edit#gid=0
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+- 未定
