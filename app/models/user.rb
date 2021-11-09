@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
+  
 end

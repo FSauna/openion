@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   end
   
   def create
+    @post.user_id = current_user.id
+    @post.save
   end
   
   def index
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
-    @user = @post.user
+    @like = Like.new
   end
   
   def edit
