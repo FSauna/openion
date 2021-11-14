@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: 'homes#about'
   
   resources :users, only: [:index, :show, :edit, :update, :destroy]
-  resources :posts
+  resources :microposts
   resources :likes, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
   
 end

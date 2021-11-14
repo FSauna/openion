@@ -1,0 +1,25 @@
+<ul class="list-unstyled">
+  <li class="media mb-3">
+    <img class="mr-2 rounded" src="<%= gravatar_url(@micropost.user, { size: 50 }) %>" alt="">
+    <div class="media-body">
+      <div>
+        <%= link_to @micropost.user.name, user_path(@micropost.user) %> <span class="text-muted">posted at <%= @micropost.created_at %></span>
+      </div>
+      <div>
+        <p><%= @micropost.content %></p>
+      </div>
+      <div class="btn-group">
+        <% if current_user == @micropost.user %>
+          <%#=詳細ページで削除するとid見つからないエラー発生 link_to "Delete", @micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      <%= render 'favorites/favorite_button', micropost: @micropost %>
+      </div>
+    </div>
+  </li>
+</ul>
+
+# コメント入力フォームのパーシャル %>
+<%= render 'comments/form', micropost: @micropost %>
+
+<%# コメント一覧のパーシャル %>
+<%= render 'comments/comments', micropost: @micropost %>
