@@ -1,0 +1,22 @@
+<div>
+  <aside>
+    <section>
+      <h1>
+        <%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <% if @user.id == current_user.id %>
+          <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <% end %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div>
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol>
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+</div>

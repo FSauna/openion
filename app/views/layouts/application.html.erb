@@ -4,12 +4,53 @@
     <title>Openion</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <div>
+          <a><span>Openion</span></a>
+          <button>
+            <span></span>
+          </button>
+          <div>
+            <ul>
+               <!--ログイン後-->
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "マイページ", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to "タイムライン", microposts_path %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+              <!--ログイン前-->
+              <% else %>
+                <li>
+                  <%= link_to "About", about_path %>
+                </li>
+                <li>
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>

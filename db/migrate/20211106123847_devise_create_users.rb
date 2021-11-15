@@ -36,6 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :introduction
       t.string :telephone_number
       t.boolean :is_active
+      t.string :profile_image_id
+      t.datetime :created_at
+      t.datetime :updated_at
       
       t.timestamps null: false
     end
