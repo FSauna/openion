@@ -3,14 +3,19 @@
     <section>
       <h1>
         <%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <%= @user.name %>
+        <%= @user.introduction %>
+        <section class="stats">
+          <%= render 'stats' %>
+        </section>
         <% if @user.id == current_user.id %>
           <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
         <% end %>
-        <%= @user.name %>
       </h1>
     </section>
   </aside>
   <div>
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol>
