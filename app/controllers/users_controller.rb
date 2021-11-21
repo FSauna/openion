@@ -23,6 +23,19 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def unsubscribe
+    @user = current_user
+  end
+  
+  def withdraw
+    @user = current_user
+    @user.update(is_active: false)
+    reset_session
+    flash[:notice] = "退会しました"
+    redirect_to root_path
+  end
+  
 
   def following
     @title = "フォロー"

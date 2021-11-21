@@ -16,7 +16,10 @@
           <%= f.text_area :introduction, class: "form-control introduction" %>
       </div>
       <button type="button" class="form__btn">
-        <%= f.submit "Update User" %>
+        <%= f.submit "編集内容を保存" %>
+      </button>
+      <button type="button" class="form__btn">
+        <%= link_to "退会する", unsubscribe_path(@user) %>
       </button>
       <% end %>
   </div>
