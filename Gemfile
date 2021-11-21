@@ -72,6 +72,6 @@ gem "refile-mini_magick"
 
 gem 'rubocop', require: false
 
-gem 'will_paginate',           '3.1.6'
+gem 'will_paginate', '3.1.6'
 
 gem 'dotenv-rails'
