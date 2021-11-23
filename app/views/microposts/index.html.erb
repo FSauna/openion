@@ -1,7 +1,6 @@
-
-  <div>
+<div>
     <div>
-      <%= link_to "+", new_micropost_path %>
+      <%= link_to "+", new_micropost_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm" %>
     </div>
     <div>  
     	<h2>タイムライン</h2>
@@ -9,7 +8,6 @@
     	  <thead>
           <tr>
             <th></th>
-            <th>Title</th>
             <th>Opinion</th>
             <th colspan="3"></th>
           </tr>
@@ -30,5 +28,6 @@
       </table>
     </div>
   </div>
+  <%= paginate @microposts %>
 
   

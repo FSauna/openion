@@ -25,8 +25,17 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
-  def active_for_authentication?
-    super && (is_deleted == false)
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end 
+
+  def reject_inactive_user #退会済みユーザーのログイン拒否
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
+        flash[:error] = "退会済みです。"
+        redirect_to new_user_registration_path
+      end
+    end
   end
 end
