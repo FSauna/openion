@@ -37,8 +37,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
 
-  def already_liked?(post)
-    self.likes.exists?(post_id: post.id)
+  def already_liked?(micropost)
+    self.likes.exists?(micropost_id: micropost.id)
   end
   
   def active_for_authentication?
