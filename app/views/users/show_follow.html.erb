@@ -1,7 +1,7 @@
 <% provide(:title, @title) %>
-<div>
-  <aside>
-    <section>
+<<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
       <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
       <h1><%= @user.name %></h1>
       <%= @user.introduction %>
@@ -22,6 +22,7 @@
           </table>
           <% end %>
         </div>
+      <% else %>
       <% end %>
     </section>
   </aside>
