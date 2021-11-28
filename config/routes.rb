@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get '/about' => "homes#about"
+  get 'search' => 'microposts#search'
   get   'inquiry'         => 'inquiry#index'
   post  'inquiry/confirm' => 'inquiry#confirm'
   post  'inquiry/thanks'  => 'inquiry#thanks'

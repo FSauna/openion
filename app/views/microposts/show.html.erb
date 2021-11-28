@@ -1,6 +1,6 @@
 <ul class="list-unstyled">
   <li class="media mb-3">
-    <img class="mr-2 rounded" src="<%= gravatar_url(@micropost.user, { size: 50 }) %>" alt="">
+    <img class="mr-2 rounded" src="<%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %>" ></img>
     <div class="media-body">
       <div>
         <%= link_to @micropost.user.name, user_path(@micropost.user) %> <span class="text-muted">posted at <%= @micropost.created_at %></span>
@@ -8,18 +8,21 @@
       <div>
         <p><%= @micropost.content %></p>
       </div>
-      <div class="btn-group">
-        <% if current_user == @micropost.user %>
-          <%#=詳細ページで削除するとid見つからないエラー発生 link_to "Delete", @micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-        <% end %>
-      <%= render 'favorites/favorite_button', micropost: @micropost %>
+        <h3>いいね件数: <%= @micropost.likes.count %></h3>
+          <% if current_user.already_liked?(@micropost) %>
+            <button type="button" class="form__btn"><%= link_to 'いいねを取り消す', micropost_path(@micropost), method: :delete %></button>
+          <% else %>
+            <button type="button" class="form__btn"><%= link_to'いいね', micropost_path(@micropost) %></button>
+          <% end %>
+          <h2>いいねしたユーザー</h2>
+          <% @micropost.liked_users.each do |user| %>
+          <section class="user_info">
+            <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+            <h1><%= link_to  user.name, user_path(micropost.user) %></h1>
+            <%= user.introduction %>
+          </section>
+          <% end %>
       </div>
     </div>
   </li>
 </ul>
-
-<!--コメント入力フォームのパーシャル %>-->
-<%= render 'comments/form', micropost: @micropost %>
-
- <!--コメント一覧のパーシャル -->
-<%= render 'comments/comments', micropost: @micropost %>

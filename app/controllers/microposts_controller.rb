@@ -1,26 +1,28 @@
 class MicropostsController < ApplicationController
-  
+
   def new
     @micropost = Micropost.new
   end
-  
+
   def create
+    @micropost = Micropost.new(micropost_params)
     @micropost.user_id = current_user.id
-    @micropost.save
+    @micropost.save!
+    redirect_to microposts_path
   end
-  
+
   def index
     @microposts = Micropost.all.search(params[:search])
     @user = current_user
   end
-  
+
   def show
     @micropost = Micropost.find(params[:id])
     @like = Like.new
     @comments = @micropost.comments.includes(:user)
-    @comment = @micropost.comments.build(user_id: current_user.id) if current_user # form_with 用　
+    @comment = @micropost.comments.build(user_id: current_user.id) if current_user # form_with 用
   end
-  
+
   def edit
     @micropost = Microost.find(params[:id])
     if @micropost.user == current_user
@@ -29,7 +31,7 @@ class MicropostsController < ApplicationController
         redirect_to microposts_path
     end
   end
-  
+
   def update
     @micropost = Microost.find(params[:id])
     if @micropost.update(micropost_params)
@@ -38,16 +40,22 @@ class MicropostsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @micropost = Microost.find(params[:id])
     @micropost.destroy
     redirect_to microposts_path
   end
   
+  def search
+    @microposts = Micropost.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
   private
   def micropost_params
-    params.require(:micropost).permit(:content, :image_id, :name, :tag_list)
+    params.require(:micropost).permit(:content, :image, :name, :tag_list)
   end
-  
+
 end
