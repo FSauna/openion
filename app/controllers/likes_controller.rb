@@ -1,14 +1,25 @@
 class LikesController < ApplicationController
   
+  def index
+    @like_microposts = current_user.like_microposts
+  end
+  
   def create
-    @like = current_user.likes.create(micropost_id: params[:micropost_id])
-    redirect_back(fallback_location: microposts_path)
+    like = Like.new #Likeクラスのインスタンスを作成
+    like.user_id = current_user.id #current_userのidを変数に代入
+    like.micropost_id = params[:micropost_id]
+
+    if like.save #likeが保存できているかどうかで条件分岐
+      redirect_to microposts_path, success: 'いいねしました'
+    else
+      redirect_to microposts_path, danger: 'いいねに失敗しました'
+    end
   end
   
   def destroy
-    @like = Like.find_by(post_id: params[:micropost_id], user_id: current_user.id)
+    @like = Like.find_by( user_id: current_user.id, micropost_id: params[:micropost_id])
     @like.destroy
-    redirect_back(fallback_location: microposts_path)
+    redirect_to microposts_path, success: 'いいねを取り消しました'
   end
   
 end

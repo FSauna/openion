@@ -1,24 +1,28 @@
 <ul class="list-unstyled">
   <li class="media mb-3">
-    <img class="mr-2 rounded" src="<%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %>" ></img>
+     <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
     <div class="media-body">
       <div>
-        <%= link_to @micropost.user.name, user_path(@micropost.user) %> <span class="text-muted">posted at <%= @micropost.created_at %></span>
-      </div>
-      <div>
+        <%= link_to @micropost.user.name, user_path(@micropost.user) %> <span class="text-muted">posted at <%= @micropost.created_at %></span> </br>
+        <%= attachment_image_tag @micropost, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
         <p><%= @micropost.content %></p>
       </div>
-        <h3>いいね件数: <%= @micropost.likes.count %></h3>
-          <% if current_user.already_liked?(@micropost) %>
-            <button type="button" class="form__btn"><%= link_to 'いいねを取り消す', micropost_path(@micropost), method: :delete %></button>
-          <% else %>
-            <button type="button" class="form__btn"><%= link_to'いいね', micropost_path(@micropost) %></button>
+        <% if !@micropost.liked_users.include?(current_user) %>
+          <%= link_to likes_path(micropost_id: @micropost.id), method: :post do %>
+            <i class="far fa-heart like-btn" ></i>
           <% end %>
+        <% else %>
+          <%= link_to likes_path(micropost_id: @micropost.id), method: :delete do %>
+            <i class="fas fa-heart unlike-btn"></i>
+          <% end %>
+        <% end %>
+        <h3>いいね件数: <%= @micropost.likes.count %></h3>
+
           <h2>いいねしたユーザー</h2>
           <% @micropost.liked_users.each do |user| %>
           <section class="user_info">
             <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-            <h1><%= link_to  user.name, user_path(micropost.user) %></h1>
+            <h1><%= link_to  user.name, user_path(@micropost.user) %></h1>
             <%= user.introduction %>
           </section>
           <% end %>
