@@ -1,6 +1,8 @@
 <div>
     <div>
-      <%= link_to "+", new_micropost_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm" %>
+      <%= link_to new_micropost_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm", method: :get do %>
+      <i class="fas fa-plus"></i>
+      <% end %>
     </div>
     <div>
     	<h2>タイムライン</h2>
@@ -10,21 +12,7 @@
           <%= f.submit "検索" %>
         <% end %>
       </div>
-    	<table>
-        <tbody>
-          <% @microposts.each do |micropost| %>
-            <tr>
-              <td>
-                <%= link_to user_path(micropost.user) do %>
-                  <%= attachment_image_tag micropost.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %>
-                <% end %>
-              </td>
-              <td><%= micropost.content %></td>
-              <td><%= link_to '詳細', micropost_path(micropost.id) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    	 <%= render 'microposts/micropost' %>
     </div>
   </div>
 

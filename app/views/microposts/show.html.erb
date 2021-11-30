@@ -1,32 +1,51 @@
 <ul class="list-unstyled">
   <li class="media mb-3">
-     <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-    <div class="media-body">
-      <div>
-        <%= link_to @micropost.user.name, user_path(@micropost.user) %> <span class="text-muted">posted at <%= @micropost.created_at %></span> </br>
-        <%= attachment_image_tag @micropost, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        <p><%= @micropost.content %></p>
-      </div>
-        <% if !@micropost.liked_users.include?(current_user) %>
-          <%= link_to likes_path(micropost_id: @micropost.id), method: :post do %>
-            <i class="far fa-heart like-btn" ></i>
+    
+       <table>
+          <tbody>
+            <% @microposts.each do |micropost| %>
+              <!--所有権を確認-->
+              <% if current_user.own?(micropost) %>
+                <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+                <%= link_to micropost_path(micropost), class: 'btn', method: :delete do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+                <%= link_to edit_micropost_path(micropost), class: 'btn', method: :get do %></i>
+                  <i class="fas fa-wrench"></i>
+                <% end %>
+              <% end %>
+              <% if current_user&.like?(micropost) %>
+                  <%= render 'likes/unlike_button', micropost: micropost %>
+                <% else %>
+                  <%= render 'likes/like_button', micropost: micropost %>
+                <% end %>
+            <% end %>
+            <td>
+              <h3><i class="fas fa-heart unlike-btn"></i>: <%= @micropost.likes.count %></h3>
+            </td>
+            <td><%= render 'microposts/micropost' %></td>
+            
+            <td>
+              
+              <h2>いいねしたユーザー</h2>
+              <% @micropost.liked_users.each do |user| %>
+              <table>
+                <tr>
+                  <td>
+                    <%= attachment_image_tag user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+                  </td>
+                  <td>
+                    <h3><%= link_to  user.name, user_path(@micropost.user) %></h3>
+                  </td>
+                </tr>
+              </table>
+              
+            </td>
           <% end %>
-        <% else %>
-          <%= link_to likes_path(micropost_id: @micropost.id), method: :delete do %>
-            <i class="fas fa-heart unlike-btn"></i>
-          <% end %>
-        <% end %>
-        <h3>いいね件数: <%= @micropost.likes.count %></h3>
-
-          <h2>いいねしたユーザー</h2>
-          <% @micropost.liked_users.each do |user| %>
-          <section class="user_info">
-            <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-            <h1><%= link_to  user.name, user_path(@micropost.user) %></h1>
-            <%= user.introduction %>
-          </section>
-          <% end %>
-      </div>
-    </div>
+        </tbody>
+      </table>
+    
   </li>
 </ul>
+
+

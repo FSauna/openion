@@ -12,12 +12,13 @@ class MicropostsController < ApplicationController
   end
 
   def index
-    @microposts = Micropost.all.search(params[:search])
+    @microposts = Micropost.all
     @user = current_user
   end
 
   def show
     @micropost = Micropost.find(params[:id])
+    @microposts = Micropost.all
     @like = Like.new
     @comments = @micropost.comments.includes(:user)
     @comment = @micropost.comments.build(user_id: current_user.id) if current_user # form_with 用
@@ -46,7 +47,7 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     redirect_to microposts_path
   end
-  
+
   def search
     @microposts = Micropost.search(params[:keyword])
     @keyword = params[:keyword]

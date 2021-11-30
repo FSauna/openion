@@ -2,14 +2,16 @@
   <aside>
     <section>
       <h1>
-        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
         <%= @user.name %>
         <%= @user.introduction %>
         <section class="stats">
           <%= render 'stats' %>
         </section>
         <% if @user.id == current_user.id %>
-          <button type="button" class="form__btn"><%= link_to "プロフィール編集", edit_user_path(@user) %></button>
+          <%= link_to edit_user_path(@user), class: "btn btn-secondary text-white", method: :get do %>
+            <i class="fas fa-edit"></i> 
+          <% end %>  
         <% end %>
       </h1>
     </section>
@@ -17,7 +19,7 @@
   <div>
     <%= render 'follow_form' if user_signed_in? %>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3>つぶやき (<%= @user.microposts.count %>)</h3>
       <ol>
         <%= render @microposts %>
       </ol>

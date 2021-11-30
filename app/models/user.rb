@@ -15,6 +15,10 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed #フォロー側 'followeds'だと英語的におかしいため
   has_many :followers, through: :passive_relationships, source: :follower #フォロワー側 こっちは :source なくてもよい
+  
+  has_many :likes, dependent: :destroy
+  has_many :liked_microposts, through: :likes, source: :micropost
+  has_many :comments, dependent: :destroy
 
   # ユーザーをフォローする
   def follow(other_user)
@@ -32,14 +36,24 @@ class User < ApplicationRecord
   end
 
 
-  has_many :likes, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
-  has_many :comments, dependent: :destroy
+  #いいね機能
 
-
-  def already_liked?(micropost)
-    self.likes.exists?(micropost_id: micropost.id)
+  def own?(object)
+    id == object.user_id
   end
+
+  def like(micropost)
+    likes.find_or_create_by(micropost: micropost)
+  end
+
+  def like?(micropost)
+    liked_microposts.include?(micropost)
+  end
+
+  def unlike(micropost)
+    liked_microposts.delete(micropost)
+  end
+
   
   def active_for_authentication?
     super && (is_active == true)

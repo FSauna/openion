@@ -5,7 +5,11 @@
     <tr>
       <td><%= link_to attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
       <td><%= user.name %></td>
-      <td><%= link_to '詳細', user_path(user) %></td>
+      <td>
+        <%= link_to user_path(user), class: "btn btn btn-secondary text-white", method: :get do %>
+        <i class="fas fa-user"></i>
+        <% end %>
+      </td>
     </tr>
   </table>
   <% end %>
