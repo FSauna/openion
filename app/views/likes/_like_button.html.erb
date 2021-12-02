@@ -1,3 +1,9 @@
-<%= link_to likes_path(micropost: micropost), method: :post, remote: true do %>
-  <i class="fas fa-heart unlike-btn"></i>
+<% if @micropost.liked_by?(current_user) %>
+    <%= link_to micropost_path(@micropost), class: 'btn', method: :delete, remote: true do %>
+        <i class="fas fa-heart unlike-btn"></i> <!-- いいねされた後のボタン-->
+    <% end %>
+<% else %>
+    <%= link_to micropost_path(@micropost), class: 'btn', method: :post, remote: true do %>
+        <i class="far fa-heart like-btn" ></i>
+    <% end %>
 <% end %>

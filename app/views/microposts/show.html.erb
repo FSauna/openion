@@ -1,37 +1,48 @@
 <ul class="list-unstyled">
   <li class="media mb-3">
-    
+
     <table>
       <tbody>
-        <% @microposts.each do |micropost| %>
-          <!--所有権を確認-->
-          <% if current_user.own?(micropost) %>
-            
-            <%= attachment_image_tag micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
-            <%= link_to micropost_path(micropost), class: 'btn', method: :delete do %>
-              <i class="fas fa-trash"></i>
+
+
+          <tr>
+            <td>
+              <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+            </td>
+            <td>
+              <%= @micropost.user.name %>
+            </td>
+            <td>
+              <%= attachment_image_tag @micropost, :image, :fill, 100, 100, format: 'jpeg' %>
+            </td>
+            <td>
+              <%= @micropost.content %>
+            </td>
+          </tr>
+
+            <!--所有権を確認-->
+            <% if current_user.own?(@micropost) %>
+              <%= link_to micropost_path(@micropost), class: 'btn', method: :delete do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+              <%= link_to edit_micropost_path(@micropost), class: 'btn', method: :get do %>
+                <i class="fas fa-wrench"></i>
+              <% end %>
             <% end %>
-            <%= link_to edit_micropost_path(micropost), class: 'btn', method: :get do %>
-              <i class="fas fa-wrench"></i>
-            <% end %>
-          <% end %>
           
-          <% if current_user&.like?(micropost) %>
-            <%= render 'likes/unlike_button', micropost: micropost %>
-          <% else %>
-            <%= render 'likes/like_button', micropost: micropost %>
-          <% end %>
-        
-        <% end %>
+          <td id="like_buttons_<%= @micropost.id %>">
+            <%= render "likes/like_button", micropost: @micropost %>
+          </td>
+              
         <td>
           <h3><i class="fas fa-heart unlike-btn"></i>: <%= @micropost.likes.count %></h3>
         </td>
-        <td><%= render 'microposts/micropost' %></td>
+
       </tbody>
     </table>
-    
 
-      
+
+
     <h2>いいねしたユーザー</h2>
 
     <table>
@@ -46,7 +57,7 @@
       </tr>
       <% end %>
     </table>
-    
+
   </li>
 </ul>
 

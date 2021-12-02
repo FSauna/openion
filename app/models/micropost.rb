@@ -14,8 +14,14 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
+  # 検索機能
   def self.search(keyword)
     where(["content like?", "%#{keyword}%"])
+  end
+
+  # いいねしたかどうか
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 
 end
