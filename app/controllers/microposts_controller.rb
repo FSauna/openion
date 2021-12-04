@@ -25,7 +25,7 @@ class MicropostsController < ApplicationController
   end
 
   def edit
-    @micropost = Microost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
     if @micropost.user == current_user
         render "edit"
     else
@@ -34,7 +34,7 @@ class MicropostsController < ApplicationController
   end
 
   def update
-    @micropost = Microost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
     if @micropost.update(micropost_params)
       redirect_to micropost_path(@micropost.id), flash: { notice: 'You have updated book successfully.' }
     else

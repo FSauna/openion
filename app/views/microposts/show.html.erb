@@ -4,7 +4,6 @@
     <table>
       <tbody>
 
-
           <tr>
             <td>
               <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
@@ -13,7 +12,7 @@
               <%= @micropost.user.name %>
             </td>
             <td>
-              <%= attachment_image_tag @micropost, :image, :fill, 100, 100, format: 'jpeg' %>
+              <%= attachment_image_tag @micropost, :image, :fill, 400, 400, format: 'jpeg' %>
             </td>
             <td>
               <%= @micropost.content %>
