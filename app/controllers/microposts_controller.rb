@@ -43,7 +43,7 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropost = Microost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
     @micropost.destroy
     redirect_to microposts_path
   end
