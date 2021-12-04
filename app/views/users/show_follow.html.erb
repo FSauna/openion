@@ -1,8 +1,8 @@
 <% provide(:title, @title) %>
-<<div class="row">
+<div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
       <h1><%= @user.name %></h1>
       <%= @user.introduction %>
       <span><%= link_to "プロフィール", @user %></span>
@@ -15,9 +15,8 @@
           <% @users.each do |user| %>
           <table>
             <tr>
-              <td><%= link_to attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
-              <td><%= user.name %></td>
-              <td><%= link_to '詳細', user_path(user) %></td>
+              <td><%= link_to attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %></td>
+              <td><%= link_to user.name, user_path(user) %></td>
             </tr>
           </table>
           <% end %>

@@ -1,0 +1,5 @@
+<!-- コメント入力フォーム ------------------------------------------------------------>
+<%= form_with(model: [micropost, comment], url: micropost_comments_path(@micropost) ) do |f| %>
+    <%= f.text_area :content, class: "input-mysize" %>
+    <%= f.submit "コメントする", class: "btn btn-outline-dark comment-submit float-right" %>
+<% end %>

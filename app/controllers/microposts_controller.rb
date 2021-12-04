@@ -20,8 +20,8 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @microposts = Micropost.all
     @like = Like.new
-    @comments = @micropost.comments.includes(:user)
-    @comment = @micropost.comments.build(user_id: current_user.id) if current_user # form_with 用
+    @comment = Comment.new
+    @comments = @micropost.comments.order(created_at: :desc)
   end
 
   def edit
