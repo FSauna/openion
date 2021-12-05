@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :require_user_logged_in
 
   def create
-    @micropost = Micropost.find(params[:micropost_id]) 
+    @micropost = Micropost.find(params[:micropost_id])
     @comment = @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
