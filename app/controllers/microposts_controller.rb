@@ -14,6 +14,10 @@ class MicropostsController < ApplicationController
   def index
     @microposts = Micropost.all
     @user = current_user
+    @tags = Micropost.tag_counts_on(:tags).most_used(20)    # タグ一覧表示
+    if @tag = params[:tag]   # タグ検索用
+      @micropost = Micropost.tagged_with(params[:tag])   # タグに紐付く投稿
+    end
   end
 
   def show
@@ -22,6 +26,7 @@ class MicropostsController < ApplicationController
     @like = Like.new
     @comment = Comment.new
     @comments = @micropost.comments.order(created_at: :desc)
+    @tags = @micropost.tag_counts_on(:tags)    # 投稿に紐付くタグの表示
   end
 
   def edit
@@ -36,7 +41,7 @@ class MicropostsController < ApplicationController
   def update
     @micropost = Micropost.find(params[:id])
     if @micropost.update(micropost_params)
-      redirect_to micropost_path(@micropost.id), flash: { notice: 'You have updated book successfully.' }
+      redirect_to micropost_path(@micropost.id)
     else
       render :edit
     end

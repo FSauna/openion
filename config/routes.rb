@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post  'inquiry/confirm' => 'inquiry#confirm'
   post  'inquiry/thanks'  => 'inquiry#thanks'
   get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-  patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
+  patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

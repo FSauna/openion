@@ -9,9 +9,14 @@
         </div>
         <div class="form-group">
         <label for="content"></label>
-          <%= f.text_area :content, class: "form-control content", autocomplete: "つぶやく" %>
+          <%= f.text_area :content, class: "form-control content", placeholder: "つぶやく" %>
         </div>
-          <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
+        <div class="form-group">
+        <label for="tag_list"></label>
+          <%= f.text_field :tag_list, value: @micropost.tag_list.join(','), placeholder: "タグを作成" %>
+        </div>
+        
+        <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
       </div>
     </div>
