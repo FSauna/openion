@@ -1,5 +1,7 @@
 <p>いいねした投稿一覧</p>
-<% @liked_microposts.each do |micropost| %>
+<table>
+  <tbody>
+    <% @liked_microposts.each do |micropost| %>
     <tr>
         <td>
           <%= link_to user_path(micropost.user) do %>
@@ -7,6 +9,9 @@
           <% end %>
         </td>
         <td><%= micropost.content %></td>
+        <td>
+          <%= attachment_image_tag micropost, :image, :fill, 400, 400, format: 'jpeg' %>
+        </td>
         <td>
           <%= link_to micropost_path(micropost.id), class: "btn", method: :get do %>
             <i class="fas fa-ellipsis-h"></i>
@@ -16,4 +21,6 @@
 	        Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	      </td>
       </tr>
-<% end %>
+    <% end %>
+  <table>
+<tbody>

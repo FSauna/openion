@@ -37,6 +37,9 @@
               </td>
               <td><%= micropost.content %></td>
               <td>
+                <%= attachment_image_tag micropost, :image, :fill, 400, 400, format: 'jpeg' %>
+              </td>
+              <td>
                 <%= link_to micropost_path(micropost.id), class: "btn btn-secondary text-white", method: :get do %>
                   <i class="fas fa-ellipsis-h"></i>
                 <% end %>

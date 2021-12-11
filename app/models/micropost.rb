@@ -8,7 +8,7 @@ class Micropost < ApplicationRecord
   attachment :image
 
   acts_as_taggable
-  acts_as_taggable_on :skills, :interests
+
 
   default_scope -> { order(created_at: :desc) } #最新順に表示
   validates :user_id, presence: true

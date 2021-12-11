@@ -2,6 +2,7 @@ class MicropostsController < ApplicationController
 
   def new
     @micropost = Micropost.new
+    @tags = Micropost.tag_counts_on(:tags)
   end
 
   def create
@@ -12,11 +13,11 @@ class MicropostsController < ApplicationController
   end
 
   def index
-    @microposts = Micropost.all
+    @microposts = Micropost.all.order(created_at: :desc).includes(:user,:tags)
     @user = current_user
     @tags = Micropost.tag_counts_on(:tags).most_used(20)    # タグ一覧表示
     if @tag = params[:tag]   # タグ検索用
-      @micropost = Micropost.tagged_with(params[:tag])   # タグに紐付く投稿
+      @microposts = Micropost.tagged_with(params[:tag])   # タグに紐付く投稿
     end
   end
 
