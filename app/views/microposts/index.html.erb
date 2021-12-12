@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row mx-auto shadow-lg rounded px-0 my-5 no-gutters">
+  	<h2 class="col-12 text-dark m-3 d-flex justify-content-around">Openion</h2>
+  	<div class="col-7 d-flex justify-content-end">
+    	<div class="search-form m-3">
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit "検索" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-1 d-flex justify-content-around">
+      <%= link_to new_micropost_path, class: "btn btn-lg rounded-circle text-right mx-auto shadow mb-5", method: :get do %>
+      <i class="fas fa-plus"></i>
+      <% end %>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center">
+      <% if @tags.present? %>
+        <% @tags.each do |tag| %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", microposts_path(tag: tag.name) %>
+        <% end %>
+      <% else %>
+          <p>登録されているタグはありません</p>
+      <% end %>
+    </div>
+ 
+	  <div class="col-12">
+      <% @microposts.each do |micropost| %>
+          <div class="col-2 d-flex justify-content-center">
+              <%= link_to user_path(micropost.user) do %>
+                <%= attachment_image_tag micropost.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+              <% end %>
+          </div>
+          <div class="col-2 d-flex justify-content-center">
+            <h3><%= link_to micropost.user.name, user_path(micropost.user) %></h3>
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+              <%= attachment_image_tag micropost, :image, :fill, 400, 400, format: 'jpeg', class: "rounded" %>
+          </div>
+          <div class="col-12 d-flex justify-content-center m-3">
+            <span><%= micropost.content %></span>
+          </div>
+          <div class="border-bottom border-dark d-flex justify-content-end mb-3">
+            <%= link_to micropost_path(micropost.id), class: "btn", method: :get do %>
+              <i class="fas fa-ellipsis-h"></i>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

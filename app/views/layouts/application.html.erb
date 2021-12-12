@@ -4,12 +4,72 @@
     <title>Openion</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;" >
+        <div class="container">
+          <a class="navbar-brand" href="/"><span><i class="fas fa-home"></i></span></a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+               <!--ログイン後-->
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to user_path(current_user.id), class: 'nav-link', method: :get do %>
+                    <i class="fas fa-user"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to likes_path, class: 'nav-link', method: :get do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to microposts_path, class: 'nav-link', method: :get do %>
+                    <i class="far fa-comment-dots"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link', method: :get do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                  <% end %>
+                </li>
+              <!--ログイン前-->
+              <% else %>
+                <li class="nav-item">
+                    <%= link_to about_path, class: 'nav-link', method: :get do %>
+                  <i class="fas fa-landmark"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_registration_path, class: 'nav-link', method: :get do %>
+                    <i class="fas fa-user-plus"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_session_path, class: 'nav-link', method: :get do %>
+                    <i class="fas fa-sign-in-alt"></i>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="d-flex justify-content-center mt-5 footer">
+        <p class="mb-0"><i class="far fa-copyright"></i>  2021 Openion</p>&emsp;
+          <%= link_to "お問い合わせ", inquiry_path %>
+      </div>
+    </footer>
   </body>
 </html>

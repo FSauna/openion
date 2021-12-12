@@ -1,0 +1,9 @@
+<% unless current_user?(@user) %> <!-- ユーザー自身の画面にフォロー・フォロー解除のボタンが表示されないようにする。 -->
+  <div id="follow_form">
+    <% if current_user.following?(@user) %>
+      <%= render 'unfollow' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
+  </div>
+<% end %>

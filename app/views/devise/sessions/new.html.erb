@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="offset-2">
+      <h2>ログイン</h2>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="offset-2">
+      <h4 class="mb-5">会員の方はこちらからログイン</h5>
+        <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td><%= f.label :メールアドレス %></td>
+              <td><%= f.email_field :email, autofocus: true, placeholder: "sample@example.com" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :パスワード（６文字以上） %></td>
+              <td><%= f.password_field :password, placeholder: "password" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "ログイン" ,class: "btn btn-primary col-md-10 offset-md-1" %></td>
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
+      <div class="pb-4">
+        <h5>会員登録がお済みでない方</h5>
+        <h5><%= link_to "こちら", new_user_registration_path %>から新規登録を行ってください。</h5>
+      </div>
+    </div>
+  </div>
+</div>
