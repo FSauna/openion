@@ -1,43 +1,39 @@
 <div class="container">
   <div class="row-8  mx-auto shadow-lg rounded px-0 my-5 no-gutters">
+     <div class="col-2 d-flex justify-content-center p-3">
+        <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+      </div>
+      <div class="col-2 d-flex justify-content-center">
+        <h3><%= link_to @micropost.user.name, user_path(@micropost.user) %></h3>
+      </div>
+      <div class="col-10 d-flex justify-content-end">
+      <!--所有権を確認-->
+      <% if current_user.own?(@micropost) %>
+        <%= link_to micropost_path(@micropost), class: 'btn', method: :delete do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+        <%= link_to edit_micropost_path(@micropost), class: 'btn', method: :get do %>
+          <i class="fas fa-wrench"></i>
+        <% end %>
+      <% end %>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <%= attachment_image_tag @micropost, :image, :fill, 400, 400, format: 'jpeg', class: "rounded" %>
+      </div>
+      <div class="col-12 d-flex justify-content-center m-3">
+        <%= @micropost.content %>
+      </div>
 
-           <div class="col-2 d-flex justify-content-center">
-                <%= attachment_image_tag @micropost.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
-            </div>
-            <div class="col-2 d-flex justify-content-center">
-              <h3><%= link_to @micropost.user.name, user_path(@micropost.user) %></h3>
-            </div>
-            <div class="col-12 d-flex justify-content-center">
-              <%= attachment_image_tag @micropost, :image, :fill, 400, 400, format: 'jpeg' %>
-            </div>
-            <div class="col-12 d-flex justify-content-center m-3">
-              <%= @micropost.content %>
-            </div>
-
-            <!--所有権を確認-->
-            <% if current_user.own?(@micropost) %>
-              <%= link_to micropost_path(@micropost), class: 'btn', method: :delete do %>
-                <i class="fas fa-trash"></i>
-              <% end %>
-              <%= link_to edit_micropost_path(@micropost), class: 'btn', method: :get do %>
-                <i class="fas fa-wrench"></i>
-              <% end %>
-            <% end %>
-          
-          <div id="like_buttons_<%= @micropost.id %>">
-            <%= render "likes/like_button", micropost: @micropost %>
-          </div>
-              
-        <div>
-          <h3><i class="fas fa-heart unlike-btn"></i>: <%= @micropost.likes.count %></h3>
-        </div>
-
-    
- 
+    <div id="like_buttons_<%= @micropost.id %>">
+      <%= render "likes/like_button", micropost: @micropost %>
+    </div>
+    <div>
+      <h3><i class="fas fa-heart unlike-btn"></i>: <%= @micropost.likes.count %></h3>
+    </div>
     <ul>
-        <li id="comments_area">
-            <%= render partial: 'comments/index', locals: { comments: @comments } %>
-        </li>
+      <li id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+      </li>
     </ul>
     <hr>
     <% if user_signed_in? %>
@@ -46,9 +42,7 @@
         </div>
     <% end %>
   </div>
-
-
-
+  
    <div class="row-4">
     <h2>いいねしたユーザー</h2>
       <table>
@@ -64,7 +58,6 @@
         <% end %>
       </table>
     </div>
-  
 </div>
 
 
