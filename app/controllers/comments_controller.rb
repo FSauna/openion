@@ -4,8 +4,11 @@ class CommentsController < ApplicationController
     @micropost = Micropost.find(params[:micropost_id])
     @comment = @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    render :index
+    if @comment.save
+      render :index
+    else
+      render :error
+    end
   end
 
   def destroy
