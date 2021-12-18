@@ -2,11 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'バリデーションのテスト' do
-    # subject〜を書くことでis_expected〜を使えるようになる
     subject { test_user.valid? }
-    # 備忘録：letが呼び出された時点で実行される
-    # 備忘録：createはDBに保存されるがbuildは保存されない
-
+    
     let(:user) { create(:user) }
     let(:user_2) { create(:user) }
 
@@ -20,7 +17,7 @@ RSpec.describe User, type: :model do
       it '空欄の場合はエラーが出る' do
         test_user.name = ''
         test_user.valid?
-        expect(test_user.errors[:name]).to include("を入力してください")
+        expect(test_user.errors[:name]).to include("can't be blank")
       end
     end
 
@@ -35,18 +32,16 @@ RSpec.describe User, type: :model do
       it '空欄の場合はエラーが出る' do
         test_user.email = ''
         test_user.valid?
-        expect(test_user.errors[:email]).to include("を入力してください")
+        expect(test_user.errors[:email]).to include("can't be blank")
       end
 
       it '一意であること' do
-        # 登録できたら失敗
         test_user.email = 'test1@test.co.jp'
         test_user.save
         test_user_2.email = 'test1@test.co.jp'
         test_user_2.save
         test_user_2.valid?
         expect(test_user_2).to be_invalid
-        # expect(test_user_2).not_to be_validの上記と同じ意味
       end
 
       it '一意でない場合はエラーが出る' do
@@ -55,7 +50,7 @@ RSpec.describe User, type: :model do
         test_user_2.email = 'test1@test.co.jp'
         test_user_2.save
         test_user_2.valid?
-        expect(test_user_2.errors[:email]).to include("はすでに存在します")
+        expect(test_user_2.errors[:email]).to include("has already been taken")
       end
     end
 
@@ -69,7 +64,7 @@ RSpec.describe User, type: :model do
       it '空欄の場合はエラーが出る' do
         test_user.password = ''
         test_user.valid?
-        expect(test_user.errors[:password]).to include("を入力してください")
+        expect(test_user.errors[:password]).to include("can't be blank")
       end
       it '6文字以上であること' do
         test_user.password = Faker::Lorem.characters(number: 1)
@@ -78,13 +73,13 @@ RSpec.describe User, type: :model do
       it '６文字未満の場合はエラーが出る' do
         test_user.password = Faker::Lorem.characters(number: 1)
         test_user.valid?
-        expect(test_user.errors[:password]).to include("は6文字以上で入力してください")
+        expect(test_user.errors[:password]).to include("is too short (minimum is 6 characters)")
       end
       it 'パスワードが不一致' do
         test_user.password = "password1"
         test_user.password_confirmation = "password2"
         test_user.valid?
-        expect(test_user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+        expect(test_user.errors[:password_confirmation]).to include("doesn't match Password")
       end
     end
   end
@@ -103,7 +98,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'Commentモデルとの関係' do
-      let(:target) { :comment }
+      let(:target) { :comments }
 
       it '1:Nとなっている' do
         expect(association.macro).to eq :has_many

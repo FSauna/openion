@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2021_11_14_135222) do
     t.datetime "remember_created_at"
     t.string "name", default: "", null: false
     t.string "introduction", default: "", null: false
-    t.string "telephone_number", default: "", null: false
     t.boolean "is_active", default: true, null: false
     t.string "profile_image_id"
     t.datetime "created_at", null: false

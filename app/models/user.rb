@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  "Relationship", #フォロワー側
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
-  has_many :following, through: :active_relationships, source: :followed #フォロー側 'followeds'だと英語的におかしいため
+  has_many :followings, through: :active_relationships, source: :followed #フォロー側 'followeds'だと英語的におかしいため
   has_many :followers, through: :passive_relationships, source: :follower #フォロワー側 こっちは :source なくてもよい
   
   has_many :likes, dependent: :destroy
@@ -60,5 +60,6 @@ class User < ApplicationRecord
   end
 
   validates :name, presence: true
+  validates :introduction, length: { maximum: 20 }
 
 end
