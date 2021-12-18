@@ -8,8 +8,13 @@ class MicropostsController < ApplicationController
   def create
     @micropost = Micropost.new(micropost_params)
     @micropost.user_id = current_user.id
-    @micropost.save!
-    redirect_to microposts_path
+    if @micropost.save
+      redirect_to microposts_path
+    else
+      @microposts = Micropost.all
+      render :new
+    end
+    
   end
 
   def index

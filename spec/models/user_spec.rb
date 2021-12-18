@@ -136,7 +136,7 @@ RSpec.describe User, type: :model do
     end
 
     context '自分がフォローしているユーザーとの関連（自己結合型多対多）' do
-      let(:target) { :followings }
+      let(:target) { :following }
 
       it '1:Nとなっている（中間テーブルactive_relationshipsを介すので自己結合型多対多）' do
         expect(association.macro).to eq :has_many

@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <%= render 'microposts/error', user: @micropost %>
       <h3 class="text-dark bg-light p-4 mb-0">新規投稿</h3>
       <div class="form-body p-4">
         <%= form_with model: @micropost, local:true do |f| %>

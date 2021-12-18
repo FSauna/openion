@@ -1,0 +1,12 @@
+<% if @micropost.errors.any? %>
+  <div id="error_explanation" class="text-danger alert alert-danger" role="alert">
+    <h3><%= pluralize(@micropost.errors.count, "error") %> prohibited this object from being saved:</h3>
+    <ul>
+      <% @micropost.errors.full_messages.each do |message| %>
+      <li>
+      <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

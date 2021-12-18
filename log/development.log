@@ -550,3 +550,652 @@ Processing by Users::RegistrationsController#create as HTML
 Completed 200 OK in 483ms (Views: 190.1ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/users/sign_up" for 175.177.42.148 at 2021-12-18 08:33:51 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"cGJ2JYG/x3rxh7tMEVpp9X9NEcP6HKpGLi5Rj5KxOBQXmwO6pph0uh5WzgZ59yNG04SBdS+m1oHCYYjua8ZfAA=="}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (237.3ms)
+Completed 200 OK in 945ms (Views: 926.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 175.177.42.148 at 2021-12-18 08:34:03 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8CMM2nymsyJOnigA4wGwjUdxvbz5TWhIxegsSl2NjmiX2nlFW4EA4qFPXUqLrPo+67gtCiz3FI8pp/UrpPrpfA==", "user"=>{"name"=>"v", "email"=>"v@v", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"新規登録"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "v@v"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "v@v"], ["encrypted_password", "$2a$12$ZoO8Iu2pWd9Zvkn4saGtw.7tN3lTEBDWzxVRNpP2v5Uj8tLM7Ei.O"], ["name", "v"], ["created_at", "2021-12-18 08:34:04.141363"], ["updated_at", "2021-12-18 08:34:04.141363"]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/users/1
+Completed 302 Found in 322ms (ActiveRecord: 13.7ms)
+
+
+Started GET "/users/1" for 175.177.42.148 at 2021-12-18 08:34:04 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_stats.html.erb (20.5ms)
+  Rendered users/show.html.erb within layouts/application (36.7ms)
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `following' for #<User:0x00007f95998e6fa8>
+Did you mean?  followings
+               following?
+               followings=
+               follow
+               followers):
+    2: <div class="stats">
+    3:   <a href="<%= following_user_path(@user) %>">
+    4:     <strong id="following" class="stat">
+    5:       <%= @user.following.count %>
+    6:     </strong>
+    7:     following
+    8:   </a>
+  
+app/views/users/_stats.html.erb:5:in `_app_views_users__stats_html_erb___1073294769966365390_70140253936380'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___110317944057337762_70140253580800'
+Started GET "/users/1" for 175.177.42.148 at 2021-12-18 08:37:40 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_stats.html.erb (14.9ms)
+  Rendered users/show.html.erb within layouts/application (25.7ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `followings' for #<User:0x00007f95997ab508>
+Did you mean?  following
+               following=
+               following?
+               following_ids
+               followers):
+    2: <div class="stats">
+    3:   <a href="<%= following_user_path(@user) %>">
+    4:     <strong id="followings" class="stat">
+    5:       <%= @user.followings.count %>
+    6:     </strong>
+    7:     following
+    8:   </a>
+  
+app/views/users/_stats.html.erb:5:in `_app_views_users__stats_html_erb___1073294769966365390_70140251853400'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___110317944057337762_70140251530280'
+Started GET "/users/1" for 175.177.42.148 at 2021-12-18 08:38:00 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_stats.html.erb:5
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_stats.html.erb:11
+  Rendered users/_stats.html.erb (70.7ms)
+  Rendered users/_follow_form.html.erb (0.5ms)
+  [1m[36mMicropost Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  Rendered users/show.html.erb within layouts/application (82.4ms)
+Completed 200 OK in 279ms (Views: 270.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:38:03 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  Parameters: {"authenticity_token"=>"4lyQ+dfOznTNkukM2zKqZft4+Cjnp9qvy4S23Bvi9tGFpeVm8Ol9tCJDnEazn+DWV7FonjIdpmgny2+94pWRxQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:17
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 147ms (Views: 125.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/likes" for 175.177.42.148 at 2021-12-18 08:38:06 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LikesController#index as HTML
+  Parameters: {"authenticity_token"=>"PrDKS5JzTSIXEwHwsR6xCFTuOcBRprWPoK08952bxk9ZSb/UtVT+4vjCdLrZs/u7+CepdoQcyUhM4uWWZOyhWw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering likes/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" INNER JOIN "likes" ON "microposts"."id" = "likes"."micropost_id" WHERE "likes"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/likes/index.html.erb:6
+  Rendered likes/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 138ms (Views: 127.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 175.177.42.148 at 2021-12-18 08:38:07 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"Gek82Y0e9gsFWL6JhwZeFanqND72I0GPwG+yaClP0/l+EElGqjlFy+qJy8PvqxSmBSOkiCOZPUgsIGsJ0Di07Q==", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_stats.html.erb:5
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_stats.html.erb:11
+  Rendered users/_stats.html.erb (8.2ms)
+  Rendered users/_follow_form.html.erb (0.4ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  Rendered users/show.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 133ms (Views: 126.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:38:18 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  Parameters: {"authenticity_token"=>"KGcriXEAqsohFPp48BofmHLpXp7IZU9ZbL6U5Gs4e8FPnl4WVicZCs7FjzKYt1Ur3iDOKB3fM56A8U2Fkk8c1Q=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:17
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (8.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 161ms (Views: 147.5ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:38:19 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"X1+Muonx6bz24rSvswIZHmBGj+WvlETwhflSQdbxD4o4pvklrtZafBkzweXbr1OtzI8fU3ouODdptosgL4Zong=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (34.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 228ms (Views: 216.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:38:22 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"34Bxer4EJXnzk2hSdcXsdVsC20wk2c9eUbYGisPZrxW4eQTlmSOWuRxCHRgdaKbG98tL+vFjs5m9+d/rOq7IAQ==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Completed 422 Unprocessable Entity in 30ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Content can't be blank):
+  
+app/controllers/microposts_controller.rb:11:in `create'
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:44:43 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 150ms (Views: 129.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:47:28 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"800KE2UqIBwYeH8M4GkGN/5W43ixzR+aNo2dIHdJj1KUtH+MQg2T3PepCkaIxEyEUp9zzmR3Y13awkRBjj7oRg==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Completed 422 Unprocessable Entity in 45ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Content can't be blank):
+  
+app/controllers/microposts_controller.rb:11:in `create'
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:48:28 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"800KE2UqIBwYeH8M4GkGN/5W43ixzR+aNo2dIHdJj1KUtH+MQg2T3PepCkaIxEyEUp9zzmR3Y13awkRBjj7oRg==", "micropost"=>{"image"=>"{}", "content"=>"sa", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mMicropost Create (3.5ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "sa"], ["image_id", nil], ["created_at", "2021-12-18 08:48:28.658261"], ["updated_at", "2021-12-18 08:48:28.658261"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts
+Completed 302 Found in 64ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:48:28 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" = ?[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 161ms (Views: 151.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:48:32 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"uqCCHk9MgPP8h00UQl5Yl98GjlfBwJqCbXxansIpYH3dWfeBaGszMxNWOF4q8xIkc88e4RR65kWBM4P/O14HaQ=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_error.html.erb (0.3ms)
+  Rendered microposts/new.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 164ms (Views: 160.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:48:34 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c9xSl1rp/to2YrUm1lShSQKXYw76lWD1J/dfylhNVuQUJScIfc5NGtmzwGy++ev6rl7zuC8vHDLLuIaroTox8A==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_error.html.erb (0.6ms)
+  Rendered microposts/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 133ms (Views: 119.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:52:11 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" = ?[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 148ms (Views: 142.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:52:13 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"G1su+lD/Ae7dJe35/iWq3oJC86SEGs29YNTQkue32DZ8oltld9iyLjL0mLOWiOBtLotjElGgsXqMmwnzHsC/Ig=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 114ms (Views: 112.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:52:14 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AbK3SlWO0TDFXOQuMw+DVZ5hEo4rlJ35SGzTVUPQXlJmS8LVcqli8CqNkWRbosnmMqiCOP4u4T6kIwo0uqc5Rg==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 136ms (Views: 124.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:52:17 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AUPbdr+T+zTXK/kqQkQ13uShZ9MSlCgBhs3/GS/uvAFmuq7pmLRI9Dj6jGAq6X9tSGj3ZccuVMZqgiZ41pnbFQ==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 130ms (Views: 117.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:52:22 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  Parameters: {"authenticity_token"=>"VSd8ewDIGx5UCoW9jtKb98UbkHqeCXFJ6vzRALm4d94y3gnkJ++o3rvb8Pfmf9FEadIAzEuzDY4GswhhQM8Qyg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" = ?[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 171ms (Views: 162.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:52:23 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"2yNI6XFw80A1RxAw4cbDasblwBLjjVjb6Mk03KXcl0S82j12VldAgNqWZXqJa4nZaixQpDY3JBwEhu29XKvwUA=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 176ms (Views: 174.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:52:26 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E+SbL19HCqp0exKQljPzZ2tEjflOlMjFGV9b0vADRKV0He6weGC5apuqZ9r+nrnUx40dT5sutAL1EIKzCXQjsQ==", "micropost"=>{"image"=>"{}", "content"=>"da", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mMicropost Create (2.0ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "da"], ["image_id", nil], ["created_at", "2021-12-18 08:52:26.642673"], ["updated_at", "2021-12-18 08:52:26.642673"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 2], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts
+Completed 302 Found in 22ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:52:26 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 140ms (Views: 135.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:52:28 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"bx/MJC88jFUudmJ4IQ9rwCfKd4kpJqOlGwHZCYEaj6sI5rm7CBs/lcGnFzJJoiFziwPnP/yc32L3TgBoeG3ovw=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 121ms (Views: 117.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:52:29 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b40BRJf4oRIkCgyIU+HibJPAea8mr1vGcVdiTnSnm9cIdHTbsN8S0svbecI7TKjfPwnpGfMVJwGdGLsvjdD8ww==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 123ms (Views: 109.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:53:42 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g+JbD/PjmEAvr3l5/cNmg3R3jCiDlAw9mq1vG4dh68rkGy6Q1MQrgMB+DDOVbiww2L4cnlYucPp24rZ6fhaM3g==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 948ms (Views: 644.5ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:53:45 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yvCKMIw1YW/ozfiCpRjctsTi/2g0AWq32NgCMAcoOTStCf+vqxLSrwccjcjNtZYFaCtv3uG7FnA0l9tR/l9eIA==", "micropost"=>{"image"=>"{}", "content"=>"hh", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mMicropost Create (2.0ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "hh"], ["image_id", nil], ["created_at", "2021-12-18 08:53:45.840348"], ["updated_at", "2021-12-18 08:53:45.840348"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 3], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts
+Completed 302 Found in 28ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/microposts" for 175.177.42.148 at 2021-12-18 08:53:45 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 179ms (Views: 174.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/microposts/new" for 175.177.42.148 at 2021-12-18 08:53:47 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"lCwzUf3yJscTLF1X6kNhsyzVONfMAoo3ec30+g5IJQzz1UbO2tWVB/z9KB2C7isAgByoYRm49vCVgi2b9z9CGA=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 195ms (Views: 192.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:54:09 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gLl5SO1W0gHwx3Js2ZSrZ3MbYr/YWW2/6vZNbAfaxRjnQAzXynFhwR8WByaxOeHU39LyCQ3jEXgGuZQN/q2iDA==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 175ms (Views: 153.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:54:20 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yuF7k5gZzoYokC1TBNQVRTB8ENjIhtdRatniAy8WV1+tGA4Mvz59RsdBWBlseV/2nLWAbh08q5aGljti1mEwSw==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 140ms (Views: 126.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:54:21 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"myWSBmZTiyijR9TWHJox0j/NwTiRtbKQ7jSiTH0VySj83OeZQXQ46EyWoZx0N3thkwRRjkQPzlcCe3sthGKuPA==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 121ms (Views: 107.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:54:41 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ft6h2DseE9g/5OUtKuAno3AJCPRphAJY3cediX2Mv/MZJ9RHHDmgGNA1kGdCTW0Q3MCYQrw+fp8xiETohPvY5w==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 131ms (Views: 118.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:54:42 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d8AtO0p1EEcRXgqHduEa6s4BKh1mmxPADhISfwj/GS0QOVikbVKjh/6Pf80eTFBZYsi6q7MhbwfiXcse8Yh+OQ==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 136ms (Views: 123.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:55:16 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GRifykeDGfrRUOgyn53WkeYZx6w00wC8rMoEX+pIOZJ+4epVYKSqOj6BnXj3MJwiStBXGuFpfHtAhd0+Ez9ehg==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 124ms (Views: 110.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/microposts" for 175.177.42.148 at 2021-12-18 08:55:24 +0000
+Cannot render console from 175.177.42.148! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmehn/A2Bz4uxSWoRFNsJCZLdbSGdVInnkgzfCQGDCzZntQA1xG0/sEUUOIs/iaXioLlAlPPLuByB+od3XFrOA==", "micropost"=>{"image"=>"{}", "content"=>"", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_error.html.erb (0.6ms)
+  Rendered microposts/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 205ms (Views: 187.3ms | ActiveRecord: 0.3ms)
+
+
