@@ -3573,3 +3573,270 @@ Migrating to CreateComments (20211114135222)
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "edwin_quitzon@schmitt.info"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "edwin_quitzon@schmitt.info"], ["encrypted_password", "$2a$04$ZHdP4QTkjFCaI6.XiTYt2ucNy6EPKh0S7BFlPgBioDYSvYzXmQtqG"], ["name", "Rev. Kristina Wolf"], ["introduction", "krxsge30saq6mjm2y321"], ["created_at", "2021-12-18 11:17:57.925370"], ["updated_at", "2021-12-18 11:17:57.925370"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wyatt.osinski@mosciski.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "wyatt.osinski@mosciski.com"], ["encrypted_password", "$2a$04$pMyLc3si.fip62G7oTN1TOHzXQ62Kb98mcBQ9MeCcUikGvvY5zNQe"], ["name", "Jennie Zulauf"], ["introduction", "w17oqmf0cm6k2hdxpioc"], ["created_at", "2021-12-18 11:17:57.960415"], ["updated_at", "2021-12-18 11:17:57.960415"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (2.8ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["content", "kl7zg1jm8p4k9swvs0p8knbson6xh9n95npw7aezasrt8c0c8sw1vx2l3gqdxhca0owubzvyel7xdkg0btk6p204juzsol4xd1r0lvqe6gbclnseys69t2sbrgc8g"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:57.965135"], ["updated_at", "2021-12-18 11:17:57.965135"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (2.7ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "j7of9yglpeq0ovokm2ry8mdxdp5m8o7pw4dcl1ypdtc0gkdtot9biqcv6nmtzutfnk5bwggc28h8ogqe8nc22o9svau5o559unhjjj79pp4ha2uth8ni7speijhjqht"], ["user_id", 1], ["micropost_id", 1], ["created_at", "2021-12-18 11:17:57.981227"], ["updated_at", "2021-12-18 11:17:57.981227"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hyun.emard@pfeffer-zieme.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "hyun.emard@pfeffer-zieme.biz"], ["encrypted_password", "$2a$04$0rcnEFb3HjyXWB.UPkQ96.9wtV8XME3botX8bhR7MqCjaz9xLeb4q"], ["name", "Buddy Kling"], ["introduction", "oui4d7rhac9wo9iv0y4v"], ["created_at", "2021-12-18 11:17:58.030087"], ["updated_at", "2021-12-18 11:17:58.030087"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erich.mosciski@schmidt-okon.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "erich.mosciski@schmidt-okon.org"], ["encrypted_password", "$2a$04$0F6gESBxZXAq.Aqmc6Fn2ez97CpADrI7RKk/XIdm/zOer1ZpvGqVy"], ["name", "Hugo Gleichner"], ["introduction", "ybm2i9iygl74zx30qfs2"], ["created_at", "2021-12-18 11:17:58.044552"], ["updated_at", "2021-12-18 11:17:58.044552"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (1.7ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["content", "rjgv4268fpzznagonuvao77dvgb73xx6ucrmqdhllbjg3a27qi8r6xyaslqsx73u7b"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.048682"], ["updated_at", "2021-12-18 11:17:58.048682"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "0rniw068sthfke0jq8w8udlqjvyadmjazk2gym7k63olmk1k1mphem1hjhj3vxiox8v2nh9t7grojmt6w3gm8szsjnuvu2kup6sqz40ywzw1m1gle7"], ["user_id", 1], ["micropost_id", 1], ["created_at", "2021-12-18 11:17:58.054979"], ["updated_at", "2021-12-18 11:17:58.054979"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dusty_king@breitenberg.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "dusty_king@breitenberg.co"], ["encrypted_password", "$2a$04$8n5lHCqM0Dzt1l824Cxr3ue0o783I32hxUBa/gJfGODzYkZsifkbi"], ["name", "Chun Cummings"], ["introduction", "o31fyog3sba2v9z510fr"], ["created_at", "2021-12-18 11:17:58.071660"], ["updated_at", "2021-12-18 11:17:58.071660"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hipolito_adams@heidenreich.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "hipolito_adams@heidenreich.biz"], ["encrypted_password", "$2a$04$FXd4SJmbPttJXdi2Cjl4aeALMQYZpmqndPen7uQiCQQQ8PqoKmRF2"], ["name", "Jackeline Haag"], ["introduction", "amjq50okevasxtg2lmvb"], ["created_at", "2021-12-18 11:17:58.084333"], ["updated_at", "2021-12-18 11:17:58.084333"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (2.1ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["content", "0l92pbdekhj9ad8dkoyu5ms7h"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.088481"], ["updated_at", "2021-12-18 11:17:58.088481"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "xdui787v2iwsk254iiytexkec8uq1e64azm4fag5fyyyvgviqisp16c2jqaunebc76wrejsdki5g83dpu07n7ppndytk73m90fl9135"], ["user_id", 1], ["micropost_id", 1], ["created_at", "2021-12-18 11:17:58.094276"], ["updated_at", "2021-12-18 11:17:58.094276"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "eufemia.wuckert@wolf.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "eufemia.wuckert@wolf.com"], ["encrypted_password", "$2a$04$T2IS5eiQBaaCJfqJgFFSvOLWqksHJF0DBqBg.w.HPchxSLrQslckO"], ["name", "Arvilla Corwin"], ["introduction", "0p0hsjolnqvxuye6ipqe"], ["created_at", "2021-12-18 11:17:58.110792"], ["updated_at", "2021-12-18 11:17:58.110792"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "willy.gorczany@daniel.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "willy.gorczany@daniel.com"], ["encrypted_password", "$2a$04$HS8fXbzpSUoIE.p70Wdt/.Wg7FxyTrBf4pT3OFLd3lY0Co2vY0LaW"], ["name", "Amb. Bob Medhurst"], ["introduction", "tz8zy798uzjrrafd59gy"], ["created_at", "2021-12-18 11:17:58.124813"], ["updated_at", "2021-12-18 11:17:58.124813"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (2.4ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["content", "ps38454wn3mvpafc6oqoytb9zhy1460pccam0r0p7paria6hjgmpc42mel1n5x1zd5twgpxi527k3mmgeljrj0qarqa820whdtikxy45prx5hs2"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.128126"], ["updated_at", "2021-12-18 11:17:58.128126"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "mqzj899n9nv73rug0apkm1o59032p6oejk37n6s4f7a9ak5tmm55912m3753ca7jndcnjjv0ut9"], ["user_id", 1], ["micropost_id", 1], ["created_at", "2021-12-18 11:17:58.134407"], ["updated_at", "2021-12-18 11:17:58.134407"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wade@fay.io"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "wade@fay.io"], ["encrypted_password", "$2a$04$CjDybF7MtNtFNoazh9v94u3vPDJPxArDwXRHbq2GnCx/ky7vCkqEC"], ["name", "Fr. Petra Koelpin"], ["introduction", "ioyhuagpvwx37wjq07aw"], ["created_at", "2021-12-18 11:17:58.153365"], ["updated_at", "2021-12-18 11:17:58.153365"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "keren@bayer.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "keren@bayer.com"], ["encrypted_password", "$2a$04$EzqV.mu17.AIfDvLpVt17.1Xb7QQrEurwSZ8GzruPLBlwAMq9B/bS"], ["name", "Harley Crona"], ["introduction", "wl53emoan7fnyg2agra9"], ["created_at", "2021-12-18 11:17:58.167914"], ["updated_at", "2021-12-18 11:17:58.167914"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (2.7ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["content", "g48l9pvg7clf16f178pf8muvzrd4urgxuswfzq2e341h"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.171181"], ["updated_at", "2021-12-18 11:17:58.171181"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "3ebifzstak3gij8usxax11l50jzpaitxds7fcynvi9tydkqs"], ["user_id", 1], ["micropost_id", 1], ["created_at", "2021-12-18 11:17:58.177090"], ["updated_at", "2021-12-18 11:17:58.177090"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "emilee@wehner.info"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "emilee@wehner.info"], ["encrypted_password", "$2a$04$4C8lOx79NQxNK/OkpFXOiOEoxNGiGEAdtOjQHeyfzCiaUA3uNPkF6"], ["name", "Jamie Kuhlman"], ["introduction", "z9veq8jq25vwa7p9a17h"], ["created_at", "2021-12-18 11:17:58.215935"], ["updated_at", "2021-12-18 11:17:58.215935"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "apzwujv55lx"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.221397"], ["updated_at", "2021-12-18 11:17:58.221397"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "travis@aufderhar.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "travis@aufderhar.org"], ["encrypted_password", "$2a$04$ZctCB7LME7LZQLtrNjNzoOMK5Sm/DDrb0csZF2hUlohJWwg.x1ySW"], ["name", "Waldo Langworth PhD"], ["introduction", "lh47w09fqe5seawc9wc0"], ["created_at", "2021-12-18 11:17:58.239322"], ["updated_at", "2021-12-18 11:17:58.239322"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "buv"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.244920"], ["updated_at", "2021-12-18 11:17:58.244920"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "valarie@witting.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "valarie@witting.net"], ["encrypted_password", "$2a$04$0N7PznXmGphQ2.Z190m1GOzortDny9.xr6Efb4HezPt1JCPYjZxKq"], ["name", "Delisa Keeling"], ["introduction", "8jroxm2os6anxgbhplmj"], ["created_at", "2021-12-18 11:17:58.261727"], ["updated_at", "2021-12-18 11:17:58.261727"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "jeoqgrzu7njcsjzdjfsbhbx10pr3vxh55h6pyig1z2ijtea3knjbhmy1s0pw20ad42b6s5e00l9r2i4jljap"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.266422"], ["updated_at", "2021-12-18 11:17:58.266422"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jammie.satterfield@schultz.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "jammie.satterfield@schultz.name"], ["encrypted_password", "$2a$04$XGEweokXpVZlUrxAvCKP2OqbNTu4v/wKJQcmS9F1OPUAOXZuEwBYq"], ["name", "Gita Graham"], ["introduction", "nmud4cs3oiaax4vipcef"], ["created_at", "2021-12-18 11:17:58.286072"], ["updated_at", "2021-12-18 11:17:58.286072"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "prum4m4a9ce6yt4s9wjltojm7v9q9d58alqqc1ogmy1fl4eallr1sgmdgi88cdx57xdzq7ui3xjnpe9lwccd3ku503j"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.289914"], ["updated_at", "2021-12-18 11:17:58.289914"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ilda@blick.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "ilda@blick.name"], ["encrypted_password", "$2a$04$.BRy51l2o9vZKa5Re4QMMeNQwLPtwRD57R.vlV1Ur.V0eoD54V9s."], ["name", "Clifton Keebler"], ["introduction", "rt0td6v1a0jd686jiy6a"], ["created_at", "2021-12-18 11:17:58.311181"], ["updated_at", "2021-12-18 11:17:58.311181"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (4.0ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["content", "n6yll9byp9e7c73tek1zhmm2qpckd5dfl3n69faap7a1m5o3xpnsgdfvzudp7sao1k2k4toe1dwa4iiz4powdmrrpqen79z16ttx74ojfcurwmabswb0a2l43hy2bljsalzgg"], ["image_id", "logo.jpg"], ["created_at", "2021-12-18 11:17:58.315585"], ["updated_at", "2021-12-18 11:17:58.315585"]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Micropost"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "travis.rogahn@fahey-rath.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "travis.rogahn@fahey-rath.co"], ["encrypted_password", "$2a$04$KTguxQyHHmu1fAl1iF78qeN2//p20WDBaqVbpmNYZBeXnO8nkQSTi"], ["name", "Sen. Adan Robel"], ["introduction", "rck8z9tv4qc0dclob90l"], ["created_at", "2021-12-18 11:17:58.351460"], ["updated_at", "2021-12-18 11:17:58.351460"]]
+  [1m[35m (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "merrill@walter.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "merrill@walter.co"], ["encrypted_password", "$2a$04$b6noEX5UbQkMbLKDsILw3ODcGImtHRCjh8lw5AoVEkgt2wo/H6jJi"], ["name", "Anika Turcotte"], ["introduction", "cmhhhcat0f33mllaw2ya"], ["created_at", "2021-12-18 11:17:58.369063"], ["updated_at", "2021-12-18 11:17:58.369063"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daine@jacobson-koelpin.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "daine@jacobson-koelpin.biz"], ["encrypted_password", "$2a$04$NVLy.aHvthZ0iDWbsD1rv.c0sMza8jioazMbbhe.a3V3r5tQ1d6xm"], ["name", "Damien Rippin"], ["introduction", "xvqqgtyc9jrbf70uxm8t"], ["created_at", "2021-12-18 11:17:58.388227"], ["updated_at", "2021-12-18 11:17:58.388227"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "valene.friesen@koelpin.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "valene.friesen@koelpin.co"], ["encrypted_password", "$2a$04$a.z8eekyiuXnol9IH0GaNORytdmJGdrmcJSxMsCPA.pJnaB8MyxCu"], ["name", "Francisco Leffler Ret."], ["introduction", "un9mzgatnnn3lh9hkr10"], ["created_at", "2021-12-18 11:17:58.402159"], ["updated_at", "2021-12-18 11:17:58.402159"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "anabel@armstrong.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "anabel@armstrong.name"], ["encrypted_password", "$2a$04$z5jZMSasd1BY.rMTVeuK.Owc3iZHdvvapzpT.bbmRDkWXH6aBJvAe"], ["name", "Gov. Ronnie Barton"], ["introduction", "td9iv8ckps8lj5ckkf3w"], ["created_at", "2021-12-18 11:17:58.418520"], ["updated_at", "2021-12-18 11:17:58.418520"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (4.5ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "test1@test.co.jp"], ["updated_at", "2021-12-18 11:17:58.423286"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "clark.herzog@kiehn.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "clark.herzog@kiehn.com"], ["encrypted_password", "$2a$04$qz.myD72eTEKe1f8b5QnweYdH9ugVOWjMVCSwv5psHvZCdXL4SUmK"], ["name", "Wilburn Bartell DVM"], ["introduction", "inosxds1w0tsnwi7jj0s"], ["created_at", "2021-12-18 11:17:58.435275"], ["updated_at", "2021-12-18 11:17:58.435275"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nestor_rogahn@baumbach-brown.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "nestor_rogahn@baumbach-brown.org"], ["encrypted_password", "$2a$04$80QUSfvN05iZgkme.rtKWeTUNb.Sp4A2BgdYqq4hzI2SRVRWspcw6"], ["name", "Dr. Leandra Bruen"], ["introduction", "ci8oaz381mapngpcrbkh"], ["created_at", "2021-12-18 11:17:58.456255"], ["updated_at", "2021-12-18 11:17:58.456255"]]
+  [1m[35m (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "test1@test.co.jp"], ["updated_at", "2021-12-18 11:17:58.462364"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "raphael_kuphal@oreilly.io"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "raphael_kuphal@oreilly.io"], ["encrypted_password", "$2a$04$lM.h2Z5sOaXS87Y2ngE1ku/E/UJPozI9S5H0sxtyDTxBBMCQRlA0W"], ["name", "Mr. Gale Graham"], ["introduction", "m6lngyh81hobmmqg4941"], ["created_at", "2021-12-18 11:17:58.469688"], ["updated_at", "2021-12-18 11:17:58.469688"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@test.co.jp"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rodney@stokes.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "rodney@stokes.com"], ["encrypted_password", "$2a$04$SlOHVgbhBeJyuMU.LOXsNehkapvrUx0HHZmROTkkLm7f.i46vSzmC"], ["name", "Britney Beatty"], ["introduction", "usj0yzy6sxv1nm3bditq"], ["created_at", "2021-12-18 11:17:58.489391"], ["updated_at", "2021-12-18 11:17:58.489391"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "walker.konopelski@greenholt.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "walker.konopelski@greenholt.com"], ["encrypted_password", "$2a$04$fsBcY7FJupcFLRGpIET2uOHe9RwSly1knR8Weq9Soe70u0ujaSnqG"], ["name", "Shannan Simonis"], ["introduction", "l4nhpzz7hbj1tmh19ono"], ["created_at", "2021-12-18 11:17:58.506574"], ["updated_at", "2021-12-18 11:17:58.506574"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michele.pacocha@rowe.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "michele.pacocha@rowe.net"], ["encrypted_password", "$2a$04$PcwtLk4y3mzoqLeAN3XlAOXBmW/19rLzoKAr24I1BIZqnmSgw4K/u"], ["name", "Joella Harris"], ["introduction", "vme89rllgz7wjw6voc98"], ["created_at", "2021-12-18 11:17:58.526834"], ["updated_at", "2021-12-18 11:17:58.526834"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "santos.mohr@hane.io"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "santos.mohr@hane.io"], ["encrypted_password", "$2a$04$MT/m2XZVYDeTb/F5ZK/g.u6nRcWpo7oftRXRL1/Nrx0KZxY6mp7Pu"], ["name", "Patrick Boyle VM"], ["introduction", "wr1lyultw3c8g7ak2rli"], ["created_at", "2021-12-18 11:17:58.547002"], ["updated_at", "2021-12-18 11:17:58.547002"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sheena_blanda@kassulke-bogan.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "introduction", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "sheena_blanda@kassulke-bogan.org"], ["encrypted_password", "$2a$04$/pwT3rxWHekk6xqIRBZ1kOYmdwo0ZSK3FM/scUGMei02pB6Y824HO"], ["name", "Val Bailey"], ["introduction", "9ghi7ugt83ndh3m0dv13"], ["created_at", "2021-12-18 11:17:58.567087"], ["updated_at", "2021-12-18 11:17:58.567087"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
