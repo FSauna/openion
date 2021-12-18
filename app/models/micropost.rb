@@ -1,7 +1,7 @@
 class Micropost < ApplicationRecord
 
   belongs_to :user
-  has_many :comments, dependent: :destroy #多対多の関係
+  has_many :comments, dependent: :destroy 
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user  #誰がいいねされているか
 

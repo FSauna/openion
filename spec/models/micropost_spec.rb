@@ -23,15 +23,20 @@ RSpec.describe Micropost, type: :model do
         test_micropost.content = ''
         is_expected.to eq false
       end
+      it '空欄の場合はエラーが出る' do
+        test_micropost.content = ''
+        test_micropost.valid?
+        expect(test_micropost.errors[:content]).to include("can't be blank")
+      end
       
       it '140字以内であること' do
-        test_micropost.content = Faker::Lorem.characters(number: 1)
+        test_micropost.content = Faker::Lorem.characters(number: 141)
         is_expected.to eq false
       end
       it '140字以上の場合はエラーが出る' do
-        test_micropost.content = Faker::Lorem.characters(number: 1)
+        test_micropost.content = Faker::Lorem.characters(number: 141)
         test_micropost.valid?
-        expect(test_micropost.errors[:content]).to include("can't be blank")
+        expect(test_micropost.errors[:content]).to include("is too long (maximum is 140 characters)")
       end
     end
   end
@@ -41,11 +46,11 @@ RSpec.describe Micropost, type: :model do
       described_class.reflect_on_association(target)
     end
 
-    context 'Micropostモデルとの関係' do
-      let(:target) { :microposts }
+    context 'Userモデルとの関係' do
+      let(:target) { :user }
 
-      it '1:Nとなっている' do
-        expect(association.macro).to eq :has_many
+      it 'N:1となっている' do
+        expect(association.macro).to eq :belongs_to
       end
     end
 
@@ -64,28 +69,6 @@ RSpec.describe Micropost, type: :model do
         expect(association.macro).to eq :has_many
       end
     end
-
-    context 'Relationshipモデル(active_relationships)との関係' do
-      let(:target) { :active_relationships }
-
-      it '1:Nとなっている' do
-        expect(association.macro).to eq :has_many
-      end
-      it '結合するモデルのクラスはRelationship' do
-        expect(association.class_name).to eq 'Relationship'
-      end
-    end
-
-    context 'Relationshipモデル(passive_relationships)との関係' do
-      let(:target) { :passive_relationships }
-
-      it '1:Nとなっている' do
-        expect(association.macro).to eq :has_many
-      end
-      it '結合するモデルのクラスはRelationship' do
-        expect(association.class_name).to eq 'Relationship'
-      end
-    end
-
   end
+  
 end
