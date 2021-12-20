@@ -6,10 +6,9 @@ RSpec.describe "Users", type: :request do
   let(:user_2) { create(:user) }
 
   describe "ログイン(POST /sign_in)に" do
-    # 存在する(DBに登録されている)ユーザー
-    let (:authenticated_user) { create(:user) }
-    # 存在しない(DBに登録されていない)ユーザー
-    let (:unauthenticated_user) { build(:user) }
+   
+    let (:authenticated_user) { create(:user) } #登録済みユーザー
+    let (:unauthenticated_user) { build(:user) } #登録していないユーザー
     let (:req_params) { { user: { email: user.email, password: user.password } } }
 
     context '存在するユーザでログインすると' do
