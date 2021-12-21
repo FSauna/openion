@@ -17,3 +17,9 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+body {
+  background-image: image-url("retrosupply-jLwVAUtLOAQ-unsplash");
+  background-color:rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+}
