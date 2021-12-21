@@ -11,16 +11,19 @@ RSpec.describe "Comments", type: :request do
   
   describe "コメントを保存(create)" do
     it "保存が成功すること" do
-      
-      expect(comment).to be_valid
+     expect do
+        comment = create(:comment, user_id: user.id, micropost_id: micropost.id)
+        end.to change(Comment, :count).by(1)
     end
   end
   
-  describe "投稿を削除(destroy)" do
+  describe "コメントを削除(destroy)" do
     it "削除が成功すること" do
-      delete micropost_comment_path comment.id
-      expect(response.status).to eq 302
-    end  
+      expect do
+          comment = create(:comment, user_id: user.id, micropost_id: micropost.id)
+          expect { delete :destroy, format: :json, params: { micropost_id: micropost.id, user_id: user.id, id: comment.id } }.to change{ Comment.count }.by(-1)
+      end
+    end
   end
   
 end

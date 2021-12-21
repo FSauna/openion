@@ -4333,3 +4333,1353 @@ Processing by CommentsController#destroy as JS
 Completed 200 OK in 46ms (Views: 33.8ms | ActiveRecord: 5.4ms)
 
 
+Started GET "/microposts" for 175.177.42.140 at 2021-12-21 13:08:36 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#index as HTML
+  Parameters: {"authenticity_token"=>"gbRDMBqtc4qUkZIF9Reu5W86462edECiB4sw/Jw9gcc091xnKP3TBFb3XknwUsCoQE2CuoA7DVmGis0Yo7Yt/Q=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (379.7ms)
+Completed 200 OK in 744ms (Views: 703.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/microposts/3" for 175.177.42.140 at 2021-12-21 13:08:38 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"authenticity_token"=>"2qDlooXMWxBVl4t/Rjl7I1mUQJ3oTwthUcSfepfrW/tv4/r1t5z7npfxRzNDfBVuduMhivYARprQxWKeqGD3wQ==", "id"=>"3"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (23.7ms)
+  Rendered comments/_error.html.erb (0.4ms)
+  Rendered comments/_form.html.erb (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 160ms (Views: 136.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/microposts" for 175.177.42.140 at 2021-12-21 13:08:42 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  Parameters: {"authenticity_token"=>"WaP0N2r4cSXuaAN3cwfMlSQr/YIU/bNddqWMkawIwprs4OtgWKjRqywOzzt2QqLYC1yclQqy/qb3pHF1k4NuoA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 130ms (Views: 124.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/microposts/new" for 175.177.42.140 at 2021-12-21 13:08:44 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"fTHVmIbV6mcrhSwSNqFn1Teug6NFr8XpDWj9r+3b8+fIcsrPtIVK6enj4F4z5AmYGNnitFvgiBKMaQBL0lBf3Q=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_error.html.erb (0.3ms)
+  Rendered microposts/new.html.erb within layouts/application (5.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 128ms (Views: 125.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/microposts" for 175.177.42.140 at 2021-12-21 13:08:46 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zit+V4lLoKN4xs+eacfsLn9p6/dov8mBYdd5ItuI4m3TaGEAuxsALbqgA9JsgoJjUB6K4HbwhHrg1oTG5ANOVw==", "micropost"=>{"image"=>"{}", "content"=>"dada", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mMicropost Create (1.9ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["content", "dada"], ["image_id", nil], ["created_at", "2021-12-21 13:08:46.708563"], ["updated_at", "2021-12-21 13:08:46.708563"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 4], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts
+Completed 302 Found in 25ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/microposts" for 175.177.42.140 at 2021-12-21 13:08:46 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.4ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 4], ["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 4], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 151ms (Views: 147.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/microposts/4" for 175.177.42.140 at 2021-12-21 13:08:49 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"authenticity_token"=>"m7dR36PIQpTp44aRxM4BrD9ZqtE1EZFqLPsR4fsuQK8u9E6IkZjiGiuFSt3Bi2/hEC7Lxite3JGt+uwFxKXslQ==", "id"=>"4"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 4], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 4], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (7.1ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (5.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 130ms (Views: 123.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/microposts/4/comments" for 175.177.42.140 at 2021-12-21 13:08:51 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0Xv9KAIhsghfsQesb+K6g2GVT4NR9YFibwkjnfiYruNkOOJ/MHEShp3Xy+Bqp9TOTuIulE+6zJnuCN55xxMC2Q==", "comment"=>{"content"=>"dadada"}, "commit"=>"コメントする", "micropost_id"=>"4"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (1.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "dadada"], ["user_id", 4], ["micropost_id", 4], ["created_at", "2021-12-21 13:08:52.008296"], ["updated_at", "2021-12-21 13:08:52.008296"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 4], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 4], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (15.6ms)
+  Rendered comments/index.js.erb (19.6ms)
+Completed 200 OK in 62ms (Views: 25.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/microposts/4/edit" for 175.177.42.140 at 2021-12-21 13:08:54 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#edit as HTML
+  Parameters: {"authenticity_token"=>"0Xv9KAIhsghfsQesb+K6g2GVT4NR9YFibwkjnfiYruNkOOJ/MHEShp3Xy+Bqp9TOTuIulE+6zJnuCN55xxMC2Q==", "id"=>"4"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:39
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:40
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:40
+  Rendering microposts/edit.html.erb within layouts/application
+  Rendered microposts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 101ms (Views: 94.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/microposts/4" for 175.177.42.140 at 2021-12-21 13:08:55 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vKqJH89kGatnigNicinmJtRqxPStIXHHH70sXSm3B/AJ6ZZI/TS5JaXszy53bIhr+x2l47NuPDyevNG5Fjyryg==", "micropost"=>{"image"=>"{}", "content"=>"dadada"}, "commit"=>"編集を保存する", "id"=>"4"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:48
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:49
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:49
+  [1m[36mMicropost Update (1.7ms)[0m  [1m[33mUPDATE "microposts" SET "content" = ?, "image_id" = ?, "updated_at" = ? WHERE "microposts"."id" = ?[0m  [["content", "dadada"], ["image_id", nil], ["updated_at", "2021-12-21 13:08:55.992032"], ["id", 4]]
+  ↳ app/controllers/microposts_controller.rb:49
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 4], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:49
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:49
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts/4
+Completed 302 Found in 24ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/microposts/4" for 175.177.42.140 at 2021-12-21 13:08:56 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 4], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 4], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (11.2ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (3.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 167ms (Views: 161.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/microposts/4" for 175.177.42.140 at 2021-12-21 13:08:57 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oUTN+pOIF0zJCrQpISLrTxVkEHaMKIkDa2KjKGQF2hcUB9Ktodi3wgtseGUkZ4UCOhNxYZJnxPjqY17MW452LQ==", "id"=>"4"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:57
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[36mComment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 4]]
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 4], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND "taggings"."context" = ?[0m  [["taggable_id", 4], ["taggable_type", "Micropost"], ["context", "tags"]]
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[36mMicropost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "microposts" WHERE "microposts"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/microposts_controller.rb:58
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:58
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts
+Completed 302 Found in 23ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/microposts" for 175.177.42.140 at 2021-12-21 13:08:57 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 104ms (Views: 99.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/microposts/3" for 175.177.42.140 at 2021-12-21 13:23:08 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#show as HTML
+  Parameters: {"authenticity_token"=>"iMwOOpSEKTUI6DxfjCHWiHFXpb+HVgemj8OZLX6pusU9jxFtptSJu8qO8BOJZLjFXiDEqJkZSl0OwmTJQSIW/w==", "id"=>"3"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (6.7ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (20.9ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (6.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (430.5ms)
+Completed 200 OK in 796ms (Views: 742.8ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/microposts/3/comments" for 175.177.42.140 at 2021-12-21 13:23:11 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ufXZoxsSQq6F+cFfk3UvzCNaDjwlBzHmddhudzpE3s8Mtsb0KULiIEefDROWMEGBDC1vKztIfB302ZOTBc9y9Q==", "comment"=>{"content"=>"dada"}, "commit"=>"コメントする", "micropost_id"=>"3"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (1.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "dada"], ["user_id", 4], ["micropost_id", 3], ["created_at", "2021-12-21 13:23:11.696334"], ["updated_at", "2021-12-21 13:23:11.696334"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (25.0ms)
+  Rendered comments/index.js.erb (28.3ms)
+Completed 200 OK in 56ms (Views: 32.2ms | ActiveRecord: 9.6ms)
+
+
+Started DELETE "/microposts/3/likes" for 175.177.42.140 at 2021-12-21 13:23:14 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LikesController#destroy as JS
+  Parameters: {"micropost_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:16
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:18
+  [1m[36mLike Destroy (0.7ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/likes_controller.rb:18
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:18
+  Rendering likes/destroy.js.erb
+  [1m[36mLike Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (5.6ms)
+  Rendered likes/destroy.js.erb (9.6ms)
+Completed 200 OK in 37ms (Views: 16.9ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/microposts/3" for 175.177.42.140 at 2021-12-21 13:23:16 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (18.5ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 236ms (Views: 231.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/microposts/3/likes" for 175.177.42.140 at 2021-12-21 13:23:19 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LikesController#create as JS
+  Parameters: {"micropost_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[36mLike Create (1.1ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 4], ["micropost_id", 3], ["created_at", "2021-12-21 13:23:19.286865"], ["updated_at", "2021-12-21 13:23:19.286865"]]
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:12
+  Rendering likes/create.js.erb
+  [1m[36mLike Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.3ms)
+  Rendered likes/create.js.erb (13.4ms)
+Completed 200 OK in 49ms (Views: 20.5ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/microposts/3/comments" for 175.177.42.140 at 2021-12-21 13:23:21 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OIuGzo+MU7b2+98fI27Wo+B0DiZP+3GQN3lssjinLMuNyJmZvdzzODSdE1MmK7juzwNvMVG0PGu2eJFWByyA8Q==", "comment"=>{"content"=>"dada"}, "commit"=>"コメントする", "micropost_id"=>"3"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (1.1ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "dada"], ["user_id", 4], ["micropost_id", 3], ["created_at", "2021-12-21 13:23:21.562804"], ["updated_at", "2021-12-21 13:23:21.562804"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (25.5ms)
+  Rendered comments/index.js.erb (31.6ms)
+Completed 200 OK in 54ms (Views: 35.3ms | ActiveRecord: 6.3ms)
+
+
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:27 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (1.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  Rendering comments/index.js.erb
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/comments/index.js.erb:1
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (45.3ms)
+  Rendered comments/index.js.erb (52.4ms)
+Completed 200 OK in 84ms (Views: 61.7ms | ActiveRecord: 10.0ms)
+
+
+Started DELETE "/microposts/3/comments/11" for 175.177.42.140 at 2021-12-21 13:23:35 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"11"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  Rendering comments/index.js.erb
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/comments/index.js.erb:1
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (20.6ms)
+  Rendered comments/index.js.erb (30.6ms)
+Completed 200 OK in 47ms (Views: 35.0ms | ActiveRecord: 6.3ms)
+
+
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:39 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:40 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:43 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:43 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:43 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 8ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started DELETE "/microposts/3/comments/10" for 175.177.42.140 at 2021-12-21 13:23:43 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"3", "id"=>"10"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started GET "/microposts/3" for 175.177.42.140 at 2021-12-21 13:23:45 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 3], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.6ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 3], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 3], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (15.7ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (4.9ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 3]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (44.3ms)
+Completed 200 OK in 134ms (Views: 126.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/microposts" for 175.177.42.140 at 2021-12-21 14:03:55 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by MicropostsController#index as HTML
+  Parameters: {"authenticity_token"=>"FOaCQtaZZ4fA9EYN2wdlsztEK1mFi4D/j3+Lrk/L00ShpZ0V5MnHCQKSikHeQgv+FDNKTpvEzQQOfnZKcEB/fg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (363.5ms)
+Completed 200 OK in 692ms (Views: 651.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/microposts/new" for 175.177.42.140 at 2021-12-21 14:03:57 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#new as HTML
+  Parameters: {"authenticity_token"=>"loGDSrky8/feZVOEeE1HE94CKuxdWbAseBS1IXxPXgwjwpwdi2JTeRwDn8h9CCle8XVL+0MW/df5FUjFQ8TyNg=="}
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_error.html.erb (0.3ms)
+  Rendered microposts/new.html.erb within layouts/application (6.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 98ms (Views: 96.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/microposts" for 175.177.42.140 at 2021-12-21 14:03:59 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cJ2iUf2vl9ynLIppmAJ19Y5OtRycRjRtQXH+sdjVb23F3r0Gz/83UmVKRiWdRxu4oTnUC4IJeZbAcANV517DVw==", "micropost"=>{"image"=>"{}", "content"=>"rwr", "tag_list"=>""}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mMicropost Create (1.5ms)[0m  [1m[32mINSERT INTO "microposts" ("user_id", "content", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["content", "rwr"], ["image_id", nil], ["created_at", "2021-12-21 14:03:59.703546"], ["updated_at", "2021-12-21 14:03:59.703546"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 5], ["taggable_type", "Micropost"]]
+  ↳ app/controllers/microposts_controller.rb:11
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:11
+Redirected to https://2309a8c0c901466f8428fe77579ad9d0.vfs.cloud9.ap-northeast-1.amazonaws.com/microposts
+Completed 302 Found in 25ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/microposts" for 175.177.42.140 at 2021-12-21 14:03:59 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:22
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT  tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Micropost' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT microposts.id FROM "microposts" ORDER BY "microposts"."created_at" DESC)) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/microposts/index.html.erb:19
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC[0m
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 4], ["id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_type" = ? AND "taggings"."context" = ? AND "taggings"."taggable_id" IN (?, ?, ?, ?)[0m  [["taggable_type", "Micropost"], ["context", "tags"], ["taggable_id", 5], ["taggable_id", 3], ["taggable_id", 2], ["taggable_id", 1]]
+  ↳ app/views/microposts/index.html.erb:29
+  Rendered microposts/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 132ms (Views: 126.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/microposts/5" for 175.177.42.140 at 2021-12-21 14:04:01 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"authenticity_token"=>"+nFht05OskdPmQZ4AhCHVTegDGiSvdoH4C6zio3iqjdPMn7gfB4SyY3/yjQHVekYGNdtf4zyl/xhL05usmkGDQ==", "id"=>"5"}
+  [1m[36mMicropost Load (1.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (10.4ms)
+  Rendered comments/_error.html.erb (2.9ms)
+  Rendered comments/_form.html.erb (4.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (44.2ms)
+Completed 200 OK in 159ms (Views: 136.6ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/microposts/5/comments" for 175.177.42.140 at 2021-12-21 14:04:03 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qlvGYgFiHrBdN1q85qPOfCuAWo5fdNJyPKBMCw/vQgEfGNk1MzK+Pp9RlvDj5qAxBPc7mUE7n4m9obHvMGTuOw==", "comment"=>{"content"=>"rwr"}, "commit"=>"コメントする", "micropost_id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (1.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "rwr"], ["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:04:03.109475"], ["updated_at", "2021-12-21 14:04:03.109475"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (16.2ms)
+  Rendered comments/index.js.erb (35.0ms)
+Completed 200 OK in 66ms (Views: 39.7ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/microposts/5/comments" for 175.177.42.140 at 2021-12-21 14:04:04 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qlvGYgFiHrBdN1q85qPOfCuAWo5fdNJyPKBMCw/vQgEfGNk1MzK+Pp9RlvDj5qAxBPc7mUE7n4m9obHvMGTuOw==", "comment"=>{"content"=>"rr"}, "commit"=>"コメントする", "micropost_id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (1.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "rr"], ["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:04:04.894135"], ["updated_at", "2021-12-21 14:04:04.894135"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (16.7ms)
+  Rendered comments/index.js.erb (21.5ms)
+Completed 200 OK in 45ms (Views: 25.3ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/microposts/5/comments" for 175.177.42.140 at 2021-12-21 14:04:07 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qlvGYgFiHrBdN1q85qPOfCuAWo5fdNJyPKBMCw/vQgEfGNk1MzK+Pp9RlvDj5qAxBPc7mUE7n4m9obHvMGTuOw==", "comment"=>{"content"=>"tertet"}, "commit"=>"コメントする", "micropost_id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "tertet"], ["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:04:07.483861"], ["updated_at", "2021-12-21 14:04:07.483861"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:35
+  Rendered comments/_index.html.erb (19.9ms)
+  Rendered comments/index.js.erb (23.7ms)
+Completed 200 OK in 47ms (Views: 27.1ms | ActiveRecord: 7.0ms)
+
+
+Started DELETE "/microposts/5/comments/14" for 175.177.42.140 at 2021-12-21 14:04:12 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"14"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.9ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+No template found for CommentsController#destroy, rendering head :no_content
+Completed 204 No Content in 40ms (ActiveRecord: 6.6ms)
+
+
+Started DELETE "/microposts/5/comments/14" for 175.177.42.140 at 2021-12-21 14:04:16 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"14"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=14):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started GET "/microposts/5" for 175.177.42.140 at 2021-12-21 14:04:17 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (12.3ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 153ms (Views: 145.8ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/microposts/5/comments/13" for 175.177.42.140 at 2021-12-21 14:04:20 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"13"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+No template found for CommentsController#destroy, rendering head :no_content
+Completed 204 No Content in 38ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/microposts/5" for 175.177.42.140 at 2021-12-21 14:04:21 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (10.4ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (3.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 126ms (Views: 119.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/microposts/5/comments" for 175.177.42.140 at 2021-12-21 14:04:32 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CcbvmsdredXtmiWqUxBH8PvAI0lfnHif60/j2G/YYUi8hfDN9TvZWy/86eZWVSm91LdCXkHTNWRqTh48UFPNcg==", "comment"=>{"content"=>"dada"}, "commit"=>"コメントする", "micropost_id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (2.8ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "dada"], ["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:04:32.287160"], ["updated_at", "2021-12-21 14:04:32.287160"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (18.2ms)
+  Rendered comments/index.js.erb (22.1ms)
+Completed 200 OK in 117ms (Views: 26.9ms | ActiveRecord: 10.7ms)
+
+
+Started DELETE "/microposts/5/comments/12" for 175.177.42.140 at 2021-12-21 14:04:34 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"12"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  Rendering comments/index.js.erb
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/comments/index.js.erb:1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:14
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (15.9ms)
+  Rendered comments/index.js.erb (21.8ms)
+Completed 200 OK in 40ms (Views: 25.0ms | ActiveRecord: 7.9ms)
+
+
+Started DELETE "/microposts/5/comments/12" for 175.177.42.140 at 2021-12-21 14:04:36 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"12"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=12):
+  
+app/controllers/comments_controller.rb:15:in `destroy'
+Started GET "/microposts/5" for 175.177.42.140 at 2021-12-21 14:04:38 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (9.9ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (4.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 161ms (Views: 146.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/microposts/5/comments" for 175.177.42.140 at 2021-12-21 14:04:41 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kdEq7NX4OxCerJf6y2sOAyRIgWhCk3xleOLW53zvSdkkkjW756ibnlzKW7bOLmBOCz/gf1zcMZ754ysDQ2Tl4w==", "comment"=>{"content"=>"ada"}, "commit"=>"コメントする", "micropost_id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "ada"], ["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:04:41.519145"], ["updated_at", "2021-12-21 14:04:41.519145"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (17.0ms)
+  Rendered comments/index.js.erb (19.7ms)
+Completed 200 OK in 44ms (Views: 23.4ms | ActiveRecord: 8.0ms)
+
+
+Started DELETE "/microposts/5/comments/15" for 175.177.42.140 at 2021-12-21 14:04:42 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"15"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.9ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  Rendering comments/index.js.erb
+  [1m[36mMicropost Load (0.9ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/comments/index.js.erb:1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:14
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (16.1ms)
+  Rendered comments/index.js.erb (22.2ms)
+Completed 200 OK in 37ms (Views: 24.9ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/microposts/5/comments" for 175.177.42.140 at 2021-12-21 14:04:51 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kdEq7NX4OxCerJf6y2sOAyRIgWhCk3xleOLW53zvSdkkkjW756ibnlzKW7bOLmBOCz/gf1zcMZ754ysDQ2Tl4w==", "comment"=>{"content"=>"gdg"}, "commit"=>"コメントする", "micropost_id"=>"5"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[36mComment Create (3.7ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "gdg"], ["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:04:51.348203"], ["updated_at", "2021-12-21 14:04:51.348203"]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:7
+  Rendering comments/index.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (346.0ms)
+  Rendered comments/index.js.erb (349.4ms)
+Completed 200 OK in 428ms (Views: 354.8ms | ActiveRecord: 11.1ms)
+
+
+Started DELETE "/microposts/5/comments/17" for 175.177.42.140 at 2021-12-21 14:05:00 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"17"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 17]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  Rendering comments/index.js.erb
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/comments/index.js.erb:1
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/comments/_index.html.erb:14
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (18.6ms)
+  Rendered comments/index.js.erb (27.0ms)
+Completed 200 OK in 53ms (Views: 30.6ms | ActiveRecord: 7.5ms)
+
+
+Started DELETE "/microposts/5/comments/16" for 175.177.42.140 at 2021-12-21 14:05:03 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CommentsController#destroy as JS
+  Parameters: {"micropost_id"=>"5", "id"=>"16"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[36mComment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/comments_controller.rb:16
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:16
+  Rendering comments/index.js.erb
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/comments/index.js.erb:1
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (9.0ms)
+  Rendered comments/index.js.erb (16.9ms)
+Completed 200 OK in 33ms (Views: 20.0ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/microposts/5/likes" for 175.177.42.140 at 2021-12-21 14:05:06 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LikesController#create as JS
+  Parameters: {"micropost_id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[36mLike Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[36mLike Create (1.7ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 4], ["micropost_id", 5], ["created_at", "2021-12-21 14:05:06.817811"], ["updated_at", "2021-12-21 14:05:06.817811"]]
+  ↳ app/controllers/likes_controller.rb:12
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:12
+  Rendering likes/create.js.erb
+  [1m[36mLike Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (5.4ms)
+  Rendered likes/create.js.erb (11.3ms)
+Completed 200 OK in 59ms (Views: 19.3ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/microposts/5" for 175.177.42.140 at 2021-12-21 14:05:09 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:30
+  Rendering microposts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/microposts/show.html.erb:11
+  [1m[36mLike Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/micropost.rb:24
+  Rendered likes/_like_button.html.erb (4.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/comments/_index.html.erb:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?[0m  [["micropost_id", 5], ["LIMIT", 2]]
+  ↳ app/views/comments/_index.html.erb:3
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC LIMIT -1 OFFSET ?[0m  [["micropost_id", 5], ["OFFSET", 2]]
+  ↳ app/views/comments/_index.html.erb:30
+  Rendered comments/_index.html.erb (8.8ms)
+  Rendered comments/_error.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (6.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 5]]
+  ↳ app/views/microposts/show.html.erb:49
+  Rendered microposts/show.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 251ms (Views: 239.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/likes" for 175.177.42.140 at 2021-12-21 14:10:13 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by LikesController#index as HTML
+  Parameters: {"authenticity_token"=>"lwR1sJCKpujvs7tzzIF0ciUltEeyMBdSOC+0cx1n70wiR2rnotoGZi3Vdz/JxBo/ClLVUKx/Wqm5LkmXIuxDdg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering likes/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" INNER JOIN "likes" ON "microposts"."id" = "likes"."micropost_id" WHERE "likes"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 4]]
+  ↳ app/views/likes/index.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/likes/index.html.erb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/likes/index.html.erb:8
+  Rendered likes/index.html.erb within layouts/application (688.7ms)
+Completed 200 OK in 902ms (Views: 854.9ms | ActiveRecord: 2.2ms)
+
+
