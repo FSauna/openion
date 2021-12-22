@@ -84,5 +84,3 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate'
-
-gem 'dotenv-rails'
