@@ -6270,3 +6270,593 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 76ms (Views: 70.7ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for 175.177.42.140 at 2021-12-24 12:52:05 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (454.0ms)
+Completed 200 OK in 808ms (Views: 798.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 175.177.42.140 at 2021-12-24 12:52:06 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 105ms (Views: 104.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 175.177.42.140 at 2021-12-24 12:52:13 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"g1xNyCKHUByJKFwhSlpISEnwtYfqik5t4YN7CXchsYoNqmkL+V5LIQpPCIf+trpj1DjhJExbDT8AB8+CcAv0Sg=="}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (482.6ms)
+Completed 200 OK in 584ms (Views: 570.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:52:18 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 127ms (Views: 123.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:55:41 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 93ms (Views: 91.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:55:43 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 98ms (Views: 97.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:55:53 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 638ms (Views: 626.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 175.177.42.140 at 2021-12-24 12:55:56 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#about as HTML
+  Parameters: {"authenticity_token"=>"b0dp/8RTDivMP+w1YaTPzc1zx5sxz4izJmSMxnG1Nb/hsU08H4oVFk9YuJPVSD3mULuTOJcey+HH4DhNdp9wfw=="}
+  Rendering homes/about.html.erb within layouts/application
+  Rendered homes/about.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 162ms (Views: 140.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:55:58 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 104ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:57:28 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 106ms (Views: 106.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:06 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 97ms (Views: 95.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:16 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 96ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:18 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 105ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:19 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 88ms (Views: 87.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:40 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 94ms (Views: 93.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:41 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 105ms (Views: 104.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:58:55 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 93ms (Views: 92.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:59:17 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 98ms (Views: 97.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:59:32 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 133ms (Views: 133.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:59:42 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 87ms (Views: 86.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 12:59:59 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 139ms (Views: 139.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:00:15 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oJasocJ2iJQzdcKuzqT/fEPYhuOtCZlGap5VAzGA8wQuYIhiGa+TqbASlgh6SA1X3hDSQAvY2hSLGuGINqq2xA==", "inquiry"=>{"name"=>"", "email"=>"", "message"=>""}, "commit"=>"確認"}
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 332ms (Views: 92.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:00:21 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cr+lyRveMPkm0971FNegL2LU/ZrFsSk/M4gIjxasanaESYEKwAcrxKW0ilOgO1IE/xypOWNgam3SDLwEEYYvtg==", "inquiry"=>{"name"=>"rw", "email"=>"rw", "message"=>"rwrw"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 98ms (Views: 97.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:00:42 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/inquiry/confirm"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:00:54 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oJasocJ2iJQzdcKuzqT/fEPYhuOtCZlGap5VAzGA8wQuYIhiGa+TqbASlgh6SA1X3hDSQAvY2hSLGuGINqq2xA==", "inquiry"=>{"name"=>"sda", "email"=>"sasa", "message"=>"sasa"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 91ms (Views: 90.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 175.177.42.140 at 2021-12-24 13:01:09 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#about as HTML
+  Rendering homes/about.html.erb within layouts/application
+  Rendered homes/about.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 131ms (Views: 130.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:01:11 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 105ms (Views: 104.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:01:15 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EE9Fc0F6joLwwNOYTOEIAYwa6+FAaUzNI10ss+AO/ZLj94rNoT2DViTbtxiZR2LvXIxjn1B1Yu7oqkd+1KF4PQ==", "inquiry"=>{"name"=>"fs", "email"=>"fs", "message"=>"fsfs"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 90ms (Views: 88.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/thanks" for 175.177.42.140 at 2021-12-24 13:01:21 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#thanks as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H2T6k559jbVvH0K1svCrKYNpm1J4vQxZqSkyg6UxJQ2Rkt5QRaSWiOx4FhMGHFkCHqHP8d5sTwtIrYYIohtgzQ==", "inquiry"=>{"name"=>"fs", "email"=>"fs", "message"=>"fsfs"}, "commit"=>"送信"}
+  Rendering inquiry_mailer/received_email.text.erb within layouts/mailer
+  Rendered inquiry_mailer/received_email.text.erb within layouts/mailer (0.4ms)
+InquiryMailer#received_email: processed outbound mail in 830.3ms
+Sent mail to fs (1590.8ms)
+Date: Fri, 24 Dec 2021 13:01:22 +0000
+From: example@example.com
+To: fs
+Message-ID: <61c5c4a271fa3_67812a45e8c50249@ip-172-31-24-5.ap-northeast-1.compute.internal.mail>
+Subject: =?UTF-8?Q?=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=82=92=E6=89=BF=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+V2Vi44K144Kk44OI44GL44KJ44GK5ZWP44GE5ZCI44KP44Gb44GM44GC44KK
+44G+44GX44Gf44CCDQoNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQpO
+YW1lOiBmcw0KRW1haWw6IGZzDQpNZXNzYWdlOg0KZnNmcw0KLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0NCg==
+
+Completed 500 Internal Server Error in 2578ms (ActiveRecord: 0.0ms)
+
+
+  
+Net::SMTPFatalError (553-5.1.3 The recipient address <fs> is not a valid RFC-5321 address. Learn more
+):
+  
+app/controllers/inquiry_controller.rb:18:in `thanks'
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:02:17 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EE9Fc0F6joLwwNOYTOEIAYwa6+FAaUzNI10ss+AO/ZLj94rNoT2DViTbtxiZR2LvXIxjn1B1Yu7oqkd+1KF4PQ==", "inquiry"=>{"name"=>"fs", "email"=>"fs@hh", "message"=>"fsfs"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 147ms (Views: 146.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/thanks" for 175.177.42.140 at 2021-12-24 13:02:26 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#thanks as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k+VXMMxKNOAIR2Kq9ZE4H/wkeCYhD1he56+J9cB+vsAdE3PzF5Mv3YsgNgxBfco0YewshYfeGwwGKz1+x1T7AA==", "inquiry"=>{"name"=>"fs", "email"=>"fs@hh", "message"=>"fsfs"}, "commit"=>"送信"}
+  Rendering inquiry_mailer/received_email.text.erb within layouts/mailer
+  Rendered inquiry_mailer/received_email.text.erb within layouts/mailer (0.4ms)
+InquiryMailer#received_email: processed outbound mail in 9.4ms
+Sent mail to fs@hh (2433.9ms)
+Date: Fri, 24 Dec 2021 13:02:26 +0000
+From: example@example.com
+To: fs@hh
+Message-ID: <61c5c4e215d3a_67812a4245850364@ip-172-31-24-5.ap-northeast-1.compute.internal.mail>
+Subject: =?UTF-8?Q?=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=82=92=E6=89=BF=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+V2Vi44K144Kk44OI44GL44KJ44GK5ZWP44GE5ZCI44KP44Gb44GM44GC44KK
+44G+44GX44Gf44CCDQoNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQpO
+YW1lOiBmcw0KRW1haWw6IGZzQGhoDQpNZXNzYWdlOg0KZnNmcw0KLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0NCg==
+
+  Rendering inquiry/thanks.html.erb within layouts/application
+  Rendered inquiry/thanks.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2569ms (Views: 123.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:03:50 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 137ms (Views: 136.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 175.177.42.140 at 2021-12-24 13:03:52 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"tMZNOZ1UyysfM8vkTTKo18jGrumoAZIjKKs2jr5l/uU6MGn6Ro3QFpxUn0L53lr8VQ76Sg7Q0XHJL4IFuU+7JQ=="}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 101ms (Views: 89.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_in" for 175.177.42.140 at 2021-12-24 13:03:56 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"OUw1u9k/rxE95i/nudZOsDBLaKj9mKK6jgcm55A31Vi3uhF4Aua0LL6Be0ENOrybrYM8C1tJ4ehvg5Jslx2QmA=="}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 151ms (Views: 149.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:04:44 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 124ms (Views: 123.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:04:50 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4g3bhVzskXTjK8DrkqI7fYE7IwTN1vXPzh4S2WTklvERtRQ7vKucoDcwpGtHBFGTUa2ret3K2+wF6XkUUEsTXg==", "inquiry"=>{"name"=>"daa", "email"=>"dada@da", "message"=>"dada"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 152ms (Views: 150.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:04:56 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 86ms (Views: 85.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:05:03 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"neVS0CNn3GOhd/gJID/bxO15TE1uQSqVKD0cx4m/hZFuXZ1uwyDRt3VsnIn1mbEqPe/EM35dBLbjyncKvRAAPg==", "inquiry"=>{"name"=>"dada", "email"=>"dada@dada", "message"=>"dada"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 89ms (Views: 88.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/thanks" for 175.177.42.140 at 2021-12-24 13:05:06 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#thanks as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mGR3g7KRqUNbhX9QvR6PFnOeDsd67gauRMX4mOy3snIWklNAaUiyftjiK/YJ8n097lZaZNw/RfylQUwT6533sg==", "inquiry"=>{"name"=>"dada", "email"=>"dada@dada", "message"=>"dada"}, "commit"=>"送信"}
+  Rendering inquiry_mailer/received_email.text.erb within layouts/mailer
+  Rendered inquiry_mailer/received_email.text.erb within layouts/mailer (0.4ms)
+InquiryMailer#received_email: processed outbound mail in 7.2ms
+Sent mail to dada@dada (2202.9ms)
+Date: Fri, 24 Dec 2021 13:05:06 +0000
+From: example@example.com
+To: dada@dada
+Message-ID: <61c5c5829fbdb_67812a45e8c50490@ip-172-31-24-5.ap-northeast-1.compute.internal.mail>
+Subject: =?UTF-8?Q?=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=82=92=E6=89=BF=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+V2Vi44K144Kk44OI44GL44KJ44GK5ZWP44GE5ZCI44KP44Gb44GM44GC44KK
+44G+44GX44Gf44CCDQoNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQpO
+YW1lOiBkYWRhDQpFbWFpbDogZGFkYUBkYWRhDQpNZXNzYWdlOg0KZGFkYQ0K
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCg==
+
+  Rendering inquiry/thanks.html.erb within layouts/application
+  Rendered inquiry/thanks.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2299ms (Views: 84.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry/thanks" for 175.177.42.140 at 2021-12-24 13:05:49 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/inquiry/thanks"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:05:52 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 88ms (Views: 87.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:05:57 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5bdALp4Do4y6sAD8BykFrEMtWhGYwOEmYOdoPyGUR1UWD4+QfkSuWG6rZHzSj29Ck7vSb4jczwWrEAPyFTvC+g==", "inquiry"=>{"name"=>"dada", "email"=>"dads@as", "message"=>"dada"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 98ms (Views: 96.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/thanks" for 175.177.42.140 at 2021-12-24 13:05:59 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#thanks as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y6UYwzNEtUU/uCg5DoJUwh59cEbuPvMvKMHFZyvzEp5FUzwA6J2ueLzffJ+6bqbpg7Uk5UjvsH3JRXHsLNlXXg==", "inquiry"=>{"name"=>"dada", "email"=>"dads@as", "message"=>"dada"}, "commit"=>"送信"}
+  Rendering inquiry_mailer/received_email.text.erb within layouts/mailer
+  Rendered inquiry_mailer/received_email.text.erb within layouts/mailer (0.4ms)
+InquiryMailer#received_email: processed outbound mail in 7.6ms
+Sent mail to dads@as (2202.4ms)
+Date: Fri, 24 Dec 2021 13:05:59 +0000
+From: example@example.com
+To: dads@as
+Message-ID: <61c5c5b7a2442_67812a4227850571@ip-172-31-24-5.ap-northeast-1.compute.internal.mail>
+Subject: =?UTF-8?Q?=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=82=92=E6=89=BF=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+V2Vi44K144Kk44OI44GL44KJ44GK5ZWP44GE5ZCI44KP44Gb44GM44GC44KK
+44G+44GX44Gf44CCDQoNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQpO
+YW1lOiBkYWRhDQpFbWFpbDogZGFkc0Bhcw0KTWVzc2FnZToNCmRhZGENCi0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQo=
+
+  Rendering inquiry/thanks.html.erb within layouts/application
+  Rendered inquiry/thanks.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2302ms (Views: 89.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 175.177.42.140 at 2021-12-24 13:06:14 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"yKMElixyId3fL7MippJxPtgjOWZrZ89yChxz1g27qzBGVSBV96s64FxI54QSfoMVRettxc22jCDrmMddCpHu8A=="}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 116ms (Views: 115.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 175.177.42.140 at 2021-12-24 13:06:16 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#about as HTML
+  Parameters: {"authenticity_token"=>"ngGHiKOHj0TUsjG6y6NL2GIAWXjejqikRxuecyeISb8Q96NLeF6UeVfVZRx/T7nz/8gN23hf6/amnyr4IKIMfw=="}
+  Rendering homes/about.html.erb within layouts/application
+  Rendered homes/about.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 87ms (Views: 86.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 175.177.42.140 at 2021-12-24 13:06:18 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"RCUm45+e5AVaYeMYacCTP+Uu67xQQOZYZFIJaEquo3HK0wIgREf/ONkGt77dLGEUeOa/H/aRpQqF1r3jTYTmsQ=="}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 161ms (Views: 160.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 175.177.42.140 at 2021-12-24 13:06:21 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 100ms (Views: 99.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:06:24 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 109ms (Views: 108.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/inquiry" for 175.177.42.140 at 2021-12-24 13:06:26 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#index as HTML
+  Rendering inquiry/index.html.erb within layouts/application
+  Rendered inquiry/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 85ms (Views: 85.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/confirm" for 175.177.42.140 at 2021-12-24 13:06:36 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R0ld+UkRW/0ou3HtUU+cxWY/9vD1M4U2Xtw8VWoqKVy08ZJHqVZWKfygFW2E6fYrtql+juUvqxWVK1eYXoWs8w==", "inquiry"=>{"name"=>"rw", "email"=>"rwr@dsds", "message"=>"dsds"}, "commit"=>"確認"}
+  Rendering inquiry/confirm.html.erb within layouts/application
+  Rendered inquiry/confirm.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 84ms (Views: 83.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/inquiry/thanks" for 175.177.42.140 at 2021-12-24 13:06:38 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by InquiryController#thanks as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HveJpjFHeARMy9yNCh9adtjhknKMIh+WZpyJhQ6EWrCQAa1l6p5jOc+siCu+86hdRSnG0SrzXMSHGD0OCa4fcA==", "inquiry"=>{"name"=>"rw", "email"=>"rwr@dsds", "message"=>"dsds"}, "commit"=>"送信"}
+  Rendering inquiry_mailer/received_email.text.erb within layouts/mailer
+  Rendered inquiry_mailer/received_email.text.erb within layouts/mailer (0.4ms)
+InquiryMailer#received_email: processed outbound mail in 5.8ms
+Sent mail to rwr@dsds (2097.7ms)
+Date: Fri, 24 Dec 2021 13:06:38 +0000
+From: example@example.com
+To: rwr@dsds
+Message-ID: <61c5c5de6d15c_67812a424585062@ip-172-31-24-5.ap-northeast-1.compute.internal.mail>
+Subject: =?UTF-8?Q?=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=82=92=E6=89=BF=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+V2Vi44K144Kk44OI44GL44KJ44GK5ZWP44GE5ZCI44KP44Gb44GM44GC44KK
+44G+44GX44Gf44CCDQoNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQpO
+YW1lOiBydw0KRW1haWw6IHJ3ckBkc2RzDQpNZXNzYWdlOg0KZHNkcw0KLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCg==
+
+  Rendering inquiry/thanks.html.erb within layouts/application
+  Rendered inquiry/thanks.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2205ms (Views: 95.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 175.177.42.140 at 2021-12-24 13:06:43 +0000
+Cannot render console from 175.177.42.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 115ms (Views: 113.8ms | ActiveRecord: 0.0ms)
+
+

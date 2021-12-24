@@ -62,6 +62,18 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "openion_#{Rails.env}"
+  # お問い合わせ機能Gmail用の設定。SMTPサーバーを使用可能にする。
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                  587,
+    domain:               'gmail.com',
+    user_name:            ENV['SEND_MAIL'],
+    password:             ENV['SEND_MAIL_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto:  true
+  }
 
   config.action_mailer.perform_caching = false
 
