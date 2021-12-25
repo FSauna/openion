@@ -1,4 +1,4 @@
-![logo.jpg](/openion/app/assets/images/logo.jpg)
+![logo.jpg](./logo.jpg)
 
 # Opeion
 Open Opinion
@@ -52,7 +52,7 @@ Open Opinion
 
 
 ## ER図
-![dwcpro_openion_er_answersheet](/openion/app/assets/images/dwcpro_openion_er_answersheet.jpg)
+![dwcpro_openion_er_answersheet](/dwcpro_openion_er_answersheet.jpg)
 
 
 ## チャレンジ要素一覧
