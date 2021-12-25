@@ -1,3 +1,5 @@
+![logo.jpg](/openion/app/assets/images/logo.jpg)
+
 # Opeion
 Open Opinion
 - サイト概要
@@ -5,16 +7,16 @@ Open Opinion
 - テーマを選んだ理由
 - ターゲットユーザ
 - 主な利用シーン
-- 設計書
+- ER図
 - チャレンジ要素一覧
 - 開発環境
 - 使用素材
 
 
 ## サイト概要
-日常の困ったことをシェアするご意見箱SNS。
-みんなが困っていることを投稿、同調(いいね)したり、コメントして議論しあう。
-解決策を知っている人がコメントで教えてあげることも可能。
+日常の困ったことをシェアするご意見箱SNSです。
+みんなが困っていることを投稿、同調(いいね)したり、コメントしたりして議論しあおう。
+解決策を知っている人はコメントで教えてあげよう。
 
 
 ### サイトテーマ
@@ -40,17 +42,18 @@ Open Opinion
 ### ターゲットユーザ
 日常のちょっとした困ったことを抱えている人。
 制度等社会の大きな課題にぶつかっている人。
+同じような悩みを誰かと共感したい人。
 
 ### 主な利用シーン
 ゴミ捨て場のゴミが散乱していて困っている時。
 通学路の歩道が狭くて危ない時。
 起業をしたいが役に立つ制度が知りたい時、調べる方法を知りたい時。
-お金がなくて学校に通えなくて時。
+お金がなくて学校に通えない時。
 
 
-## 設計書
-テーブル定義書
-https://docs.google.com/spreadsheets/d/1w00NJBWOTqsnFYGTvt98RcAhfPG5tx58k9RQXAI6S1Y/edit#gid=1243549839
+## ER図
+![dwcpro_openion_er_answersheet](/openion/app/assets/images/dwcpro_openion_er_answersheet.jpg)
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1OLe4_YLulDvtOMI3M_xQPB-XfJHu7gri31EvCHPVgMI/edit#gid=0
@@ -63,4 +66,9 @@ https://docs.google.com/spreadsheets/d/1OLe4_YLulDvtOMI3M_xQPB-XfJHu7gri31EvCHPV
 - IDE：Cloud9
 
 ## 使用素材
-- 未定
+- Font Awesome
+https://fontawesome.com/
+- Unsplash
+https://unsplash.com/
+- DesignEvo
+https://www.designevo.com/
