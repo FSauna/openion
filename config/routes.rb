@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   end
   get 'likes' => 'likes#index'
   
-  resources :microposts
   resources :relationships, only: [:create, :destroy]
   
 
