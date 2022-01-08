@@ -1,34 +1,33 @@
 <div class="container">
   <div class="row mx-auto">
-      <!--プロフィール-->
-      <aside>
-        <section>
-            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle m-3" %>
-            <h1><%= @user.name %></h1>
-            <h2><%= @user.introduction %></h2>
-            <section class="stats">
-              <%= render 'stats' %>
-            </section>
-            <% if @user.id == current_user.id %>
-              <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-dark m-3" %>
+    <!--プロフィール-->
+    <aside>
+      <section>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle m-3" %>
+        <h1><%= @user.name %></h1>
+        <h2><%= @user.introduction %></h2>
+        <section class="stats">
+          <%= render 'stats' %>
+        </section>
+        <% if @user.id == current_user.id %>
+          <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-dark m-3" %>
+        <% end %>
+      </section>
+    </aside>
+    <div class="col-8  d-flex justify-content-center">
+      <section class="follow m-3">
+          <h2><%= @title %> 一覧</h2>
+          <div>
+            <% @users.each do |user| %>
+            <table>
+              <tr>
+                <td><%= link_to attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle m-3" %></td>
+                <td><%= link_to user.name, user_path(user) %></td>
+              </tr>
+            </table>
             <% end %>
-        </section>
-      </aside>
-      
-      <div class="col-8  d-flex justify-content-center">
-        <section class="follow m-3">
-            <h2><%= @title %> 一覧</h2>
-            <div>
-              <% @users.each do |user| %>
-              <table>
-                <tr>
-                  <td><%= link_to attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle m-3" %></td>
-                  <td><%= link_to user.name, user_path(user) %></td>
-                </tr>
-              </table>
-              <% end %>
-            </div>
-        </section>
-      </div>
+          </div>
+      </section>
+    </div>
   </div>
 </div>
