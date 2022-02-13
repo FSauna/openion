@@ -35,7 +35,6 @@
     <div id="like_buttons_<%= @micropost.id %>">
       <%= render "likes/like_button", micropost: @micropost %>
     </div>
-
     <div>
       <h3><i class="fas fa-heart unlike-btn"></i>: <%= @micropost.likes.count %></h3>
     </div>
@@ -44,7 +43,6 @@
         <%= render partial: 'comments/index', locals: { comments: @comments } %>
       </li>
     </ul>
-    <hr>
     <% if user_signed_in? %>
       <div class="comment-create d-flex justify-content-center">
         <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
